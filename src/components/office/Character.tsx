@@ -708,11 +708,27 @@ export const Character = forwardRef<CharacterHandle, CharacterProps>(
             </Html>
           )}
 
-          {/* Name Label: tên trên đầu nhân vật, màu theo trạng thái việc */}
+          {/* Name Label: tên trên đầu nhân vật, màu theo trạng thái việc.
+              Bấm được vào thẻ tên để mở thẻ nhân vật — trước đây thẻ tên
+              xuyên thấu (pointer-events-none) nên bấm vào đó là bấm vào
+              khoảng trống trên đầu nhân vật, không mở được gì, mà trên
+              điện thoại thẻ tên là chỗ dễ bấm nhất. */}
           {showNameLabel && member && (
             <Html position={[0, 2.06, 0]} center zIndexRange={[23, 0]}>
               <div
-                className="pointer-events-none flex items-center gap-1.5 whitespace-nowrap rounded-full border px-2.5 py-1 text-[11px] font-bold shadow-md backdrop-blur-sm"
+                role="button"
+                tabIndex={0}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onSelect?.();
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    onSelect?.();
+                  }
+                }}
+                className="flex cursor-pointer items-center gap-1.5 whitespace-nowrap rounded-full border px-2.5 py-1 text-[11px] font-bold shadow-md backdrop-blur-sm"
                 style={{
                   backgroundColor: nameTone.chipBg,
                   color: nameTone.chipText,
