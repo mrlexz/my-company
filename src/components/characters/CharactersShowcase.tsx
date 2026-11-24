@@ -10,6 +10,7 @@ import {
 } from "@/components/office/Character";
 import { renderProp } from "@/components/office/character/parts/propParts";
 import { useOfficeData } from "@/hooks/useOfficeData";
+import { getStatusTone } from "@/lib/statusTone";
 import type {
   CharacterState,
   EmotionType,
@@ -223,6 +224,7 @@ function CharacterTurntableCard({
 }) {
   const charRef = useRef<CharacterHandle>(null);
   const bp = member.character;
+  const statusTone = getStatusTone(member.status);
 
   const handleEmotionClick = (em: EmotionType) => {
     onSelectEmotion(em);
@@ -310,6 +312,42 @@ function CharacterTurntableCard({
           >
             {member.role}
           </p>
+
+          {/* Trạng thái công việc thật (dữ liệu công ty, làm mới 5 phút) */}
+          {(member.status || member.progress || member.focus) && (
+            <div className="mt-2.5 rounded-2xl border border-[#E6DEC8] bg-white p-2.5 text-xs leading-relaxed text-[#4A4235]">
+              {member.status && (
+                <span
+                  className="inline-flex items-center gap-1.5 rounded-full border px-2 py-0.5 text-[11px] font-bold"
+                  style={{
+                    backgroundColor: statusTone.chipBg,
+                    color: statusTone.chipText,
+                    borderColor: statusTone.chipBorder,
+                  }}
+                >
+                  <span
+                    className="h-1.5 w-1.5 rounded-full"
+                    style={{ backgroundColor: statusTone.dot }}
+                  />
+                  {member.status}
+                </span>
+              )}
+              {member.progress && (
+                <p className="mt-1">
+                  <span className="font-bold text-[#2A251D]">Tiến độ: </span>
+                  {member.progress}
+                </p>
+              )}
+              {member.focus && (
+                <p className="mt-1">
+                  <span className="font-bold text-[#2A251D]">
+                    Đang tập trung:{" "}
+                  </span>
+                  {member.focus}
+                </p>
+              )}
+            </div>
+          )}
 
           <div className="mt-2.5 flex flex-wrap gap-1 text-[10px] text-[#5C5343]">
             <span className="rounded-md bg-[#F2EAD7] px-2 py-0.5">

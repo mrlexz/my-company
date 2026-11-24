@@ -25,7 +25,13 @@ async function fetchCompanyStatus(): Promise<void> {
     const res = await fetch("/api/status", { cache: "no-store" });
     if (!res.ok) return;
     const data = (await res.json()) as CompanyStatus;
-    useOfficeStore.getState().setCompanyStatus(data);
+    const source = res.headers.get("X-Company-Status-Source");
+    useOfficeStore
+      .getState()
+      .setCompanyStatus(
+        data,
+        source === "redis" || source === "bundled" ? source : null,
+      );
   } catch {
     // Giữ dữ liệu build-time, lần làm mới sau sẽ thử lại.
   }

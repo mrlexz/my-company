@@ -36,6 +36,11 @@ interface OfficeStoreState {
   // null = chưa tải xong, giao diện dùng dữ liệu đóng gói lúc build.
   companyStatus: CompanyStatus | null;
   companyStatusUpdatedAt: number | null;
+  /** Nguồn của dữ liệu thật lần tải thành công gần nhất. */
+  companyStatusSource: "redis" | "bundled" | null;
+
+  /** Bảng trạng thái công việc (panel bên phải) đang mở hay không. */
+  isStatusBoardOpen: boolean;
 
   enterOffice: () => void;
   selectDepartment: (id: DepartmentId) => void;
@@ -48,7 +53,11 @@ interface OfficeStoreState {
   toggleDebugFacing: () => void;
 
   setLifeSnapshots: (snapshots: Record<string, CharacterLifeSnapshot>) => void;
-  setCompanyStatus: (status: CompanyStatus) => void;
+  setCompanyStatus: (
+    status: CompanyStatus,
+    source: "redis" | "bundled" | null,
+  ) => void;
+  setStatusBoardOpen: (open: boolean) => void;
   triggerCallToLobby: (memberId: string) => void;
   triggerHurry: (memberId: string) => void;
 
@@ -78,6 +87,9 @@ export const useOfficeStore = create<OfficeStoreState>((set) => ({
 
   companyStatus: null,
   companyStatusUpdatedAt: null,
+  companyStatusSource: null,
+
+  isStatusBoardOpen: false,
 
   enterOffice: () => set({ hasEnteredOffice: true }),
   selectDepartment: (id) =>
@@ -94,8 +106,13 @@ export const useOfficeStore = create<OfficeStoreState>((set) => ({
   toggleDebugFacing: () => set((s) => ({ debugFacing: !s.debugFacing })),
 
   setLifeSnapshots: (snapshots) => set({ lifeSnapshots: snapshots }),
-  setCompanyStatus: (status) =>
-    set({ companyStatus: status, companyStatusUpdatedAt: Date.now() }),
+  setCompanyStatus: (status, source) =>
+    set({
+      companyStatus: status,
+      companyStatusUpdatedAt: Date.now(),
+      companyStatusSource: source,
+    }),
+  setStatusBoardOpen: (open) => set({ isStatusBoardOpen: open }),
   triggerCallToLobby: (memberId) =>
     set({
       characterAction: { type: "callToLobby", memberId, nonce: Date.now() },
