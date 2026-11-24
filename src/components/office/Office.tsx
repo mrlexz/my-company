@@ -11,7 +11,6 @@ import { INTRO_CAMERA_POSITION } from "@/lib/officeLayout";
 import { getStatusTone } from "@/lib/statusTone";
 import { useOfficeStore } from "@/store/useOfficeStore";
 import { CharacterInspectorCard } from "./CharacterInspectorCard";
-import { CommandBar } from "./CommandBar";
 import { DebugLifePanel } from "./DebugLifePanel";
 import { IntroOverlay } from "./IntroOverlay";
 import { OfficeScene } from "./OfficeScene";
@@ -261,9 +260,6 @@ export function Office() {
 
           {/* Slide-Up Room Detail Card when a room is selected */}
           <RoomDetailCard />
-
-          {/* Bottom-Center Command Input & Workflow Caption Bar (hidden while room card is open) */}
-          {!selectedDepartment && <CommandBar />}
         </motion.div>
       )}
     </div>
