@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef } from "react";
 import { Html, OrbitControls, RoundedBox } from "@react-three/drei";
-import { useFrame, type ThreeEvent } from "@react-three/fiber";
+import { useFrame, useThree, type ThreeEvent } from "@react-three/fiber";
 import type { Group, Material, Mesh } from "three";
 import type { OrbitControls as OrbitControlsImpl } from "three-stdlib";
 import rawWorkflow from "@/data/workflow.json";
@@ -15,6 +15,7 @@ import {
   CAMERA_BASE_AZIMUTH,
   computeOfficeRooms,
   INTRO_CAMERA_TARGET,
+  cameraFovForAspect,
   LOW_PARTITION_HEIGHT,
   OUTER_WALL_HEIGHT,
   WALL_THICKNESS,
@@ -549,9 +550,28 @@ function DebugWalkableGrid() {
   );
 }
 
-export function OfficeScene({ enableSSAO = true }: { enableSSAO?: boolean }) {
+export function OfficeScene({
+  enableSSAO = true,
+  isPortrait = false,
+}: {
+  enableSSAO?: boolean;
+  /** Portrait phone: wider FOV, farther zoom-out allowed. */
+  isPortrait?: boolean;
+}) {
   const { departments, allMembers, getDepartmentById } = useOfficeData();
   const controlsRef = useRef<OrbitControlsImpl | null>(null);
+  const { camera } = useThree();
+
+  // Keep the camera FOV in sync when the viewport flips between portrait
+  // and landscape (e.g. rotating the phone). The Canvas camera prop only
+  // sets the initial FOV.
+  useEffect(() => {
+    // Narrow the generic Camera union to the perspective camera R3F creates.
+    if ("fov" in camera) {
+      camera.fov = cameraFovForAspect(isPortrait ? 0.5 : 16 / 9);
+      camera.updateProjectionMatrix();
+    }
+  }, [camera, isPortrait]);
   const honeyWoodMap = getHoneyWoodTexture();
 
   const hasEnteredOffice = useOfficeStore((s) => s.hasEnteredOffice);
@@ -682,6 +702,7 @@ export function OfficeScene({ enableSSAO = true }: { enableSSAO?: boolean }) {
             ],
             target: room.cameraFocus.target,
             duration: 1.25,
+            halfWidth: 4.5,
           });
         }
       }
@@ -938,7 +959,9 @@ export function OfficeScene({ enableSSAO = true }: { enableSSAO?: boolean }) {
         })}
       </group>
 
-      {/* Camera OrbitControls: ~45° diagonal, max ±35° azimuth, zoom clamped, no back-view */}
+      {/* Camera OrbitControls: ~45° diagonal, max ±35° azimuth, zoom clamped, no back-view.
+          Portrait phones may pull the camera farther out to fit the office,
+          so the zoom-out limit is higher there. */}
       <OrbitControls
         ref={controlsRef}
         makeDefault
@@ -947,7 +970,7 @@ export function OfficeScene({ enableSSAO = true }: { enableSSAO?: boolean }) {
         dampingFactor={0.06}
         enablePan={false}
         minDistance={12}
-        maxDistance={36}
+        maxDistance={isPortrait ? 70 : 36}
         minPolarAngle={Math.PI / 6}
         maxPolarAngle={Math.PI / 2.4}
         minAzimuthAngle={CAMERA_BASE_AZIMUTH - CAMERA_AZIMUTH_LIMIT}

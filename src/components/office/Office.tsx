@@ -7,7 +7,12 @@ import { motion } from "framer-motion";
 import * as THREE from "three";
 import { useGraphicsSettings } from "@/hooks/useGraphicsSettings";
 import { useOfficeData } from "@/hooks/useOfficeData";
-import { INTRO_CAMERA_POSITION } from "@/lib/officeLayout";
+import {
+  INTRO_CAMERA_POSITION,
+  INTRO_CAMERA_TARGET,
+  adaptCameraPreset,
+  cameraFovForAspect,
+} from "@/lib/officeLayout";
 import { getStatusTone } from "@/lib/statusTone";
 import { useOfficeStore } from "@/store/useOfficeStore";
 import { CharacterInspectorCard } from "./CharacterInspectorCard";
@@ -20,7 +25,8 @@ import { StatusBoard } from "./StatusBoard";
 export function Office() {
   const { companyName, departments, totalMembers, getDepartmentById } =
     useOfficeData();
-  const { enableSSAO, isTabVisible } = useGraphicsSettings();
+  const { enableSSAO, isTabVisible, isPortrait, aspect } =
+    useGraphicsSettings();
 
   const hasEnteredOffice = useOfficeStore((s) => s.hasEnteredOffice);
   const selectedDepartmentId = useOfficeStore((s) => s.selectedDepartmentId);
@@ -102,8 +108,15 @@ export function Office() {
           toneMappingExposure: 1.04,
         }}
         camera={{
-          position: INTRO_CAMERA_POSITION,
-          fov: 38,
+          // Portrait phones: wider FOV + pulled-back start so the whole
+          // office fits the narrow screen. Desktop values unchanged.
+          position: adaptCameraPreset(
+            INTRO_CAMERA_POSITION,
+            INTRO_CAMERA_TARGET,
+            aspect,
+            8,
+          ),
+          fov: cameraFovForAspect(aspect),
           near: 0.1,
           far: 120,
         }}
@@ -117,7 +130,7 @@ export function Office() {
           }
         }}
       >
-        <OfficeScene enableSSAO={enableSSAO} />
+        <OfficeScene enableSSAO={enableSSAO} isPortrait={isPortrait} />
       </Canvas>
 
       {/* Intro Overlay with Framer Motion */}
@@ -137,7 +150,7 @@ export function Office() {
                 <h1 className="text-base font-extrabold tracking-tight text-[#2A251D]">
                   {companyName}
                 </h1>
-                <p className="text-xs text-[#6B6253]">
+                <p className="hidden text-xs text-[#6B6253] sm:block">
                   {departments.length} phòng ban • {totalMembers} nhân sự
                 </p>
               </div>
@@ -189,8 +202,10 @@ export function Office() {
             </aside>
           </header>
 
-          {/* Top-Right Scene Controls (Postprocessing toggle, Back to Overview) */}
-          <div className="fixed right-5 top-5 z-20 flex flex-wrap items-center justify-end gap-2">
+          {/* Top-Right Scene Controls (Postprocessing toggle, Back to Overview).
+              On phones the buttons stack vertically so they never overlap
+              the top-left header card; on desktop they stay in one row. */}
+          <div className="fixed right-5 top-5 z-20 flex flex-col items-end gap-2 sm:flex-row sm:flex-wrap sm:items-center sm:justify-end">
             {selectedDepartment && !isWorkflowRunning && (
               <button
                 type="button"

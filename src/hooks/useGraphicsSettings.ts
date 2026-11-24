@@ -4,6 +4,10 @@ import { useEffect, useState } from "react";
 
 export interface GraphicsSettings {
   isMobile: boolean;
+  /** Portrait viewport (aspect < 1): camera pulls back and opens up. */
+  isPortrait: boolean;
+  /** Live viewport aspect (width / height), for camera framing. */
+  aspect: number;
   enableSSAO: boolean;
   isTabVisible: boolean;
 }
@@ -15,6 +19,8 @@ export interface GraphicsSettings {
  */
 export function useGraphicsSettings(): GraphicsSettings {
   const [isMobile, setIsMobile] = useState(false);
+  const [isPortrait, setIsPortrait] = useState(false);
+  const [aspect, setAspect] = useState(16 / 9);
   const [isTabVisible, setIsTabVisible] = useState(true);
 
   useEffect(() => {
@@ -22,6 +28,9 @@ export function useGraphicsSettings(): GraphicsSettings {
       const narrow = window.innerWidth < 768;
       const coarse = window.matchMedia?.("(pointer: coarse)").matches ?? false;
       setIsMobile(narrow || coarse);
+      const nextAspect = window.innerWidth / Math.max(1, window.innerHeight);
+      setAspect(nextAspect);
+      setIsPortrait(nextAspect < 1);
     };
 
     checkMobile();
@@ -41,6 +50,8 @@ export function useGraphicsSettings(): GraphicsSettings {
 
   return {
     isMobile,
+    isPortrait,
+    aspect,
     enableSSAO: !isMobile,
     isTabVisible,
   };

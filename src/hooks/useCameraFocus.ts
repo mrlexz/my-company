@@ -7,6 +7,7 @@ import type { OrbitControls as OrbitControlsImpl } from "three-stdlib";
 import {
   DEFAULT_CAMERA_POSITION,
   DEFAULT_CAMERA_TARGET,
+  adaptCameraPreset,
   type CameraFocusPreset,
   type ComputedRoom,
 } from "@/lib/officeLayout";
@@ -16,6 +17,13 @@ interface FocusOptions extends CameraFocusPreset {
   duration?: number;
   ease?: string;
   onComplete?: () => void;
+  /**
+   * Half-width (world units) of the subject that must fit horizontally.
+   * 8 = whole office overview, 4.5 = one department room. On portrait
+   * phones the camera pulls back so the subject still fits; desktop is
+   * unchanged.
+   */
+  halfWidth?: number;
 }
 
 export function useCameraFocus(
@@ -39,6 +47,7 @@ export function useCameraFocus(
       duration = 1.2,
       ease = "power3.inOut",
       onComplete,
+      halfWidth = 8,
     }: FocusOptions) => {
       killActiveTween();
 
@@ -46,6 +55,20 @@ export function useCameraFocus(
       if (controls) {
         controls.minDistance = 3.5;
       }
+
+      // Portrait phones: pull the camera back so the subject fits the
+      // narrow screen. Read the live aspect so an orientation change
+      // mid-session is honoured by the next camera move.
+      const aspect =
+        typeof window !== "undefined"
+          ? window.innerWidth / Math.max(1, window.innerHeight)
+          : 1;
+      const adaptedPosition = adaptCameraPreset(
+        position,
+        target,
+        aspect,
+        halfWidth,
+      );
 
       const tl = gsap.timeline({
         onComplete: () => {
@@ -56,9 +79,9 @@ export function useCameraFocus(
       tl.to(
         camera.position,
         {
-          x: position[0],
-          y: position[1],
-          z: position[2],
+          x: adaptedPosition[0],
+          y: adaptedPosition[1],
+          z: adaptedPosition[2],
           duration,
           ease,
           onUpdate: () => {
@@ -98,6 +121,7 @@ export function useCameraFocus(
         position: room.cameraFocus.position,
         target: room.cameraFocus.target,
         duration,
+        halfWidth: 4.5,
       });
     },
     [focusOn, rooms]

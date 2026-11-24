@@ -311,9 +311,11 @@ export function IntroOverlay() {
             </p>
           </motion.div>
 
-          {/* Horizontal Lineup of all 10 Characters (Lex & Emma centered and larger) */}
-          <div className="my-6 w-full max-w-6xl overflow-x-auto pb-2">
-            <div className="mx-auto flex min-w-[780px] items-end justify-center gap-2 px-2 sm:gap-3 lg:gap-4">
+          {/* Horizontal Lineup of all 10 Characters (Lex & Emma centered and larger).
+              On phones the lineup wraps into a 5-column grid instead of a
+              horizontal scroll with no affordance; desktop keeps the row. */}
+          <div className="my-6 w-full max-w-6xl pb-2 sm:overflow-x-auto">
+            <div className="mx-auto grid grid-cols-5 items-end justify-center gap-2 px-2 sm:flex sm:min-w-[780px] sm:gap-3 lg:gap-4">
               {orderedMembers.map((member) => {
                 const isExecutive = member.departmentId === "executive";
                 const appearIdx = APPEARANCE_ORDER.indexOf(member.id);
