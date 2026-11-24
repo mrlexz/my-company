@@ -6,12 +6,14 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "sync:status": "node scripts/sync-status-to-redis.mjs"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.9",
     "@react-three/fiber": "^9.8.2",
     "@react-three/postprocessing": "^3.2.2",
+    "@upstash/redis": "^1.41.0",
     "framer-motion": "^14.14.0",
     "gsap": "^3.15.1",
     "next": "16.4.6",
