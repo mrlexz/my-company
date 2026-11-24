@@ -1,0 +1,29 @@
+{
+  "relations": [
+    { "from": "lex", "to": "emma", "weight": 10, "topic": "duyệt kế hoạch" },
+    { "from": "emma", "to": "lex", "weight": 10, "topic": "báo cáo tiến độ" },
+    { "from": "emma", "to": "alien", "weight": 6, "topic": "đặt kịch bản" },
+    { "from": "emma", "to": "8bit-video", "weight": 6, "topic": "tiến độ dựng video" },
+    { "from": "emma", "to": "threads", "weight": 6, "topic": "lịch đăng bài" },
+    { "from": "emma", "to": "8bit-fb", "weight": 6, "topic": "doanh số bán hàng" },
+    { "from": "emma", "to": "it-lead", "weight": 7, "topic": "điều phối kỹ thuật" },
+    { "from": "emma", "to": "data", "weight": 7, "topic": "số liệu tuần" },
+    { "from": "alien", "to": "8bit-video", "weight": 9, "topic": "kịch bản & dựng video" },
+    { "from": "8bit-video", "to": "alien", "weight": 9, "topic": "chỉnh cảnh quay" },
+    { "from": "8bit-video", "to": "threads", "weight": 7, "topic": "giao video đăng" },
+    { "from": "8bit-video", "to": "8bit-fb", "weight": 7, "topic": "giao video bán hàng" },
+    { "from": "threads", "to": "8bit-fb", "weight": 9, "topic": "đăng bài & chạy đơn" },
+    { "from": "8bit-fb", "to": "threads", "weight": 9, "topic": "phối hợp kênh" },
+    { "from": "it-lead", "to": "automation", "weight": 8, "topic": "luồng tự động" },
+    { "from": "it-lead", "to": "data", "weight": 8, "topic": "báo cáo dữ liệu" },
+    { "from": "it-lead", "to": "dev", "weight": 8, "topic": "công cụ nội bộ" },
+    { "from": "automation", "to": "it-lead", "weight": 7, "topic": "kiểm tra luồng" },
+    { "from": "data", "to": "it-lead", "weight": 7, "topic": "đối chiếu số liệu" },
+    { "from": "dev", "to": "it-lead", "weight": 8, "topic": "review code" },
+    { "from": "data", "to": "emma", "weight": 8, "topic": "gửi báo cáo" },
+    { "from": "automation", "to": "threads", "weight": 6, "topic": "tự động đăng bài" },
+    { "from": "automation", "to": "8bit-fb", "weight": 6, "topic": "tự động trả lời đơn" },
+    { "from": "automation", "to": "dev", "weight": 7, "topic": "webhook & API" },
+    { "from": "dev", "to": "automation", "weight": 7, "topic": "tối ưu công cụ" }
+  ]
+}

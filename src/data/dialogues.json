@@ -1,0 +1,174 @@
+{
+  "pairs": {
+    "lex|emma": [
+      [
+        { "speaker": "emma", "text": "Anh ơi, hôm nay có 3 việc cần anh duyệt.", "gesture": "point" },
+        { "speaker": "lex", "text": "Tuần này ưu tiên video sản phẩm mới nhé.", "gesture": "nod" }
+      ],
+      [
+        { "speaker": "lex", "text": "Tiến độ chiến dịch quý này ổn chứ em?", "gesture": "chin" },
+        { "speaker": "emma", "text": "Các phòng đang chạy đúng nhịp, chiều em gửi tổng hợp ạ!", "gesture": "nod" }
+      ],
+      [
+        { "speaker": "emma", "text": "Phòng Nội dung vừa chốt xong concept mới đó anh.", "gesture": "point" },
+        { "speaker": "lex", "text": "Tốt lắm, duyệt luôn để kịp lịch lên sóng!", "gesture": "laugh" }
+      ],
+      [
+        { "speaker": "lex", "text": "Nhớ nhắc Data chuẩn bị số liệu cho buổi họp chiều.", "gesture": "point" },
+        { "speaker": "emma", "text": "Dạ em đã note vào sổ rồi, anh yên tâm!", "gesture": "nod" }
+      ]
+    ],
+    "alien|8bit-video": [
+      [
+        { "speaker": "alien", "text": "Kịch bản xong rồi, dựng giúp mình nhé!", "gesture": "point" },
+        { "speaker": "8bit-video", "text": "Ok, gửi mình, chiều có bản nháp.", "gesture": "nod" }
+      ],
+      [
+        { "speaker": "alien", "text": "Đoạn mở đầu 3 giây đầu nhớ thêm hiệu ứng giật nhẹ nha!", "gesture": "point" },
+        { "speaker": "8bit-video", "text": "Chuẩn gu 8-bit luôn, để mình xử lý!", "gesture": "laugh" }
+      ],
+      [
+        { "speaker": "8bit-video", "text": "Cảnh cuối hơi dài, cắt gọn 5 giây được không?", "gesture": "tilt" },
+        { "speaker": "alien", "text": "Cắt đi cho cuốn, giữ đúng câu chốt là đẹp!", "gesture": "nod" }
+      ],
+      [
+        { "speaker": "alien", "text": "Mình mới nảy ra 2 ý tưởng hook cực lạ nè.", "gesture": "laugh" },
+        { "speaker": "8bit-video", "text": "Ghi ngay đi, render xong clip này mình quay luôn!", "gesture": "point" }
+      ]
+    ],
+    "threads|8bit-fb": [
+      [
+        { "speaker": "threads", "text": "Video lên chưa? Bài sắp tới giờ đăng rồi.", "gesture": "point" },
+        { "speaker": "8bit-fb", "text": "Đang chạy quảng cáo, đơn mới nhảy liên tục.", "gesture": "laugh" }
+      ],
+      [
+        { "speaker": "8bit-fb", "text": "Bên Threads hôm nay tương tác có bùng nổ không?", "gesture": "tilt" },
+        { "speaker": "threads", "text": "Trend đang lên vù vù, bình luận đọc không kịp luôn!", "gesture": "laugh" }
+      ],
+      [
+        { "speaker": "threads", "text": "Gửi mình link ưu đãi để ghim dưới comment nhé.", "gesture": "point" },
+        { "speaker": "8bit-fb", "text": "Đã đẩy link qua rồi, chốt đơn mạnh tay nào!", "gesture": "nod" }
+      ],
+      [
+        { "speaker": "8bit-fb", "text": "Tối nay 20h lên bài đồng bộ cả hai kênh nhé.", "gesture": "chin" },
+        { "speaker": "threads", "text": "Chốt lịch 20h, mình hẹn giờ sẵn rồi!", "gesture": "nod" }
+      ]
+    ],
+    "8bit-video|threads": [
+      [
+        { "speaker": "8bit-video", "text": "Xuất xong bản dọc 9:16 rồi, đăng Threads đi!", "gesture": "point" },
+        { "speaker": "threads", "text": "Ngon lành, mình viết caption bắt trend ngay!", "gesture": "laugh" }
+      ],
+      [
+        { "speaker": "threads", "text": "Cho mình xin thêm 1 ảnh bìa thật nổi bật nha.", "gesture": "tilt" },
+        { "speaker": "8bit-video", "text": "5 phút nữa có ngay 3 phương án cho bạn chọn!", "gesture": "nod" }
+      ]
+    ],
+    "8bit-video|8bit-fb": [
+      [
+        { "speaker": "8bit-video", "text": "Bản video chạy ads có phụ đề lớn xong rồi nè.", "gesture": "point" },
+        { "speaker": "8bit-fb", "text": "Tuyệt, mình lên chiến dịch bán hàng liền!", "gesture": "laugh" }
+      ],
+      [
+        { "speaker": "8bit-fb", "text": "Chèn thêm khung giá ưu đãi ở giây cuối được không?", "gesture": "chin" },
+        { "speaker": "8bit-video", "text": "Ok luôn, xuất lại bản mới trong một nốt nhạc!", "gesture": "nod" }
+      ]
+    ],
+    "data|emma": [
+      [
+        { "speaker": "data", "text": "Báo cáo tuần đã xong, em gửi chị nhé.", "gesture": "point" },
+        { "speaker": "emma", "text": "Cảm ơn em, số liệu rõ ràng quá, chị trình anh Lex luôn!", "gesture": "nod" }
+      ],
+      [
+        { "speaker": "emma", "text": "Tỷ lệ chuyển đổi video mới tuần này tăng nhiều không em?", "gesture": "tilt" },
+        { "speaker": "data", "text": "Tăng 24% so với tuần trước đó chị, biểu đồ xanh đẹp luôn!", "gesture": "laugh" }
+      ],
+      [
+        { "speaker": "data", "text": "Em vừa cập nhật dashboard theo thời gian thực rồi ạ.", "gesture": "point" },
+        { "speaker": "emma", "text": "Đỉnh quá, lát họp nhanh mình chiếu lên xem nhé!", "gesture": "nod" }
+      ],
+      [
+        { "speaker": "emma", "text": "Nhờ em lọc thêm số liệu kênh Threads giúp chị nhé.", "gesture": "chin" },
+        { "speaker": "data", "text": "Dạ 10 phút nữa em gửi bảng chi tiết ạ.", "gesture": "nod" }
+      ]
+    ],
+    "dev|it-lead": [
+      [
+        { "speaker": "dev", "text": "Công cụ mới chạy ổn rồi, anh kiểm tra giúp em.", "gesture": "point" },
+        { "speaker": "it-lead", "text": "Để anh review xong rồi triển khai cho cả công ty dùng.", "gesture": "nod" }
+      ],
+      [
+        { "speaker": "it-lead", "text": "Sprint này còn bug nào kẹt không em?", "gesture": "chin" },
+        { "speaker": "dev", "text": "Xử lý sạch sẽ rồi anh, test xanh 100%!", "gesture": "laugh" }
+      ],
+      [
+        { "speaker": "dev", "text": "Em tối ưu tốc độ tải trang giảm một nửa rồi đó anh.", "gesture": "laugh" },
+        { "speaker": "it-lead", "text": "Quá mượt, xứng đáng thưởng ly cà phê!", "gesture": "nod" }
+      ],
+      [
+        { "speaker": "it-lead", "text": "Chiều nay nhớ hỗ trợ Automation nối thêm API mới nhé.", "gesture": "point" },
+        { "speaker": "dev", "text": "Dạ rõ, em chuẩn bị sẵn endpoint rồi ạ!", "gesture": "nod" }
+      ]
+    ],
+    "automation|dev": [
+      [
+        { "speaker": "automation", "text": "Mình cần thêm một webhook cho quy trình đăng bài.", "gesture": "point" },
+        { "speaker": "dev", "text": "Ok, để mình mở endpoint mới rồi gửi key cho bạn.", "gesture": "nod" }
+      ],
+      [
+        { "speaker": "dev", "text": "Luồng đồng bộ báo cáo sáng nay chạy mượt không?", "gesture": "tilt" },
+        { "speaker": "automation", "text": "Chạy tự động đúng 8h00 không lệch một giây!", "gesture": "laugh" }
+      ],
+      [
+        { "speaker": "automation", "text": "Thêm nút retry tự động khi mạng chập chờn nha.", "gesture": "chin" },
+        { "speaker": "dev", "text": "Ý hay đó, mình đẩy bản vá ngay bây giờ!", "gesture": "nod" }
+      ],
+      [
+        { "speaker": "dev", "text": "Bánh răng sau lưng bạn hôm nay quay đều ghê!", "gesture": "laugh" },
+        { "speaker": "automation", "text": "Mới tra dầu sáng nay, hiệu suất 200% luôn!", "gesture": "laugh" }
+      ]
+    ],
+    "automation|threads": [
+      [
+        { "speaker": "automation", "text": "Mình cài lịch tự động đẩy bài Threads rồi nhé.", "gesture": "point" },
+        { "speaker": "threads", "text": "Nhàn hẳn luôn, cảm ơn bạn nhiều!", "gesture": "laugh" }
+      ],
+      [
+        { "speaker": "threads", "text": "Có tự động gom bình luận nổi bật vào bảng không?", "gesture": "tilt" },
+        { "speaker": "automation", "text": "Có luôn, cứ mỗi 15 phút tự cập nhật một lần!", "gesture": "nod" }
+      ]
+    ],
+    "it-lead|automation": [
+      [
+        { "speaker": "it-lead", "text": "Quy trình tự động hóa đăng đa kênh chạy ổn chưa?", "gesture": "chin" },
+        { "speaker": "automation", "text": "Ổn áp rồi anh, tiết kiệm được 2 tiếng mỗi ngày!", "gesture": "nod" }
+      ],
+      [
+        { "speaker": "automation", "text": "Em định nối thêm cảnh báo đơn hàng tự động cho Marketing.", "gesture": "point" },
+        { "speaker": "it-lead", "text": "Triển khai luôn đi, bên đó đang rất cần!", "gesture": "nod" }
+      ]
+    ]
+  },
+  "lobbyChat": [
+    [
+      { "speaker": "a", "text": "Hôm nay nắng đẹp ghê, mây trôi ngang cửa sổ luôn!", "gesture": "laugh" },
+      { "speaker": "b", "text": "Làm việc trên đảo lơ lửng đúng là hết ý!", "gesture": "nod" }
+    ],
+    [
+      { "speaker": "a", "text": "Cà phê góc sảnh hôm nay thơm quá chừng!", "gesture": "laugh" },
+      { "speaker": "b", "text": "Làm một ly cho tỉnh táo rồi chiến tiếp nào!", "gesture": "nod" }
+    ],
+    [
+      { "speaker": "a", "text": "Vừa thấy meme văn phòng mới cười xỉu luôn!", "gesture": "laugh" },
+      { "speaker": "b", "text": "Đâu đâu, gửi sang nhóm chung xem với!", "gesture": "point" }
+    ],
+    [
+      { "speaker": "a", "text": "Trưa nay cả công ty đặt cơm gì đây nhỉ?", "gesture": "chin" },
+      { "speaker": "b", "text": "Bún chả hay cơm tấm? Mình vote cả hai!", "gesture": "laugh" }
+    ],
+    [
+      { "speaker": "a", "text": "Họp nhanh 5 phút chốt đầu việc chiều nay nhé!", "gesture": "point" },
+      { "speaker": "b", "text": "Nhất trí, cả nhóm cùng tăng tốc nào!", "gesture": "nod" }
+    ]
+  ]
+}

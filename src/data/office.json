@@ -1,0 +1,393 @@
+{
+  "companyName": "Văn Phòng Công Ty",
+  "lobby": {
+    "gatherPoints": {
+      "coffee": [0.0, -4.9],
+      "roundTable": [0.0, 0.2],
+      "noticeBoard": [0.0, -5.82],
+      "plants": [
+        [-1.15, 5.2],
+        [1.15, 5.2],
+        [-6.3, 0.0],
+        [6.3, 0.0]
+      ]
+    },
+    "grid": {
+      "cellSize": 1,
+      "origin": [-7, -6],
+      "cols": 14,
+      "rows": 12,
+      "walkable": [
+        [0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0],
+        [0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0],
+        [0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0],
+        [0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0],
+        [0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        [1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1],
+        [0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0],
+        [0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0],
+        [0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0],
+        [0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0],
+        [0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0]
+      ]
+    }
+  },
+  "departments": [
+    {
+      "id": "executive",
+      "zone": "executive",
+      "name": "Ban Điều hành",
+      "color": "#3F5B2F",
+      "position": [-4.25, -3.6],
+      "rect": [-7.0, -6.0, 5.5, 4.8],
+      "door": [-1.5, -3.2, "east"],
+      "shortDesc": "Hoạch định chiến lược, đặt mục tiêu và điều phối toàn công ty",
+      "workstations": [
+        { "memberId": "lex", "desk": [-4.8, -4.15], "chair": [-5.4, -4.95], "facing": 0.62, "lookAt": [0.0, 0.0] },
+        { "memberId": "emma", "desk": [-2.9, -4.05], "chair": [-3.1, -4.85], "facing": 0.42, "lookAt": [0.0, 0.0] }
+      ],
+      "members": [
+        {
+          "id": "lex",
+          "name": "Lex",
+          "role": "Chủ tịch",
+          "desc": "Đặt mục tiêu, ra quyết định cuối",
+          "skills": ["/set-vision", "/approve-plan", "/final-decision"],
+          "avatarStyle": {
+            "shirtColor": "#2C3E22",
+            "accessory": "Kính gọng vàng & đồng hồ cổ điển"
+          },
+          "character": {
+            "id": "lex",
+            "name": "Lex",
+            "body": {
+              "height": 1.04,
+              "headScale": 1.04,
+              "skinColor": "#F7DEC2",
+              "bodyShape": "sturdy"
+            },
+            "face": {
+              "eyeStyle": "sharp",
+              "eyeColor": "#231E1A",
+              "browStyle": "thick",
+              "mouthStyle": "smirk",
+              "blush": true,
+              "nose": true,
+              "extras": ["shortBeard"]
+            },
+            "hair": {
+              "style": "shortSlick",
+              "color": "#4A3C31"
+            },
+            "headgear": {
+              "type": "roundGlasses",
+              "color": "#FFFDF7",
+              "accentColor": "#D9B35C"
+            },
+            "outfit": {
+              "top": "suit",
+              "topColor": "#354B2A",
+              "trim": "#D9B35C",
+              "cape": "long",
+              "belt": "#2B241D",
+              "gloves": "#5C6E4E",
+              "boots": "#3E3025"
+            },
+            "accessories": [
+              { "type": "badge", "color": "#D9B35C", "attach": "chest" },
+              { "type": "ring", "color": "#D9B35C", "attach": "leftHand" }
+            ],
+            "prop": {
+              "type": "scroll",
+              "hand": "right"
+            }
+          }
+        },
+        {
+          "id": "emma",
+          "name": "Emma",
+          "role": "CEO + Thư ký",
+          "desc": "Nhận lệnh từ Chủ tịch, điều phối cả công ty",
+          "skills": ["/dispatch-task", "/sync-teams", "/daily-brief"],
+          "avatarStyle": {
+            "shirtColor": "#537640",
+            "accessory": "Máy tính bảng & kẹp tài liệu"
+          },
+          "character": {
+            "id": "emma",
+            "name": "Emma",
+            "body": {
+              "height": 0.98,
+              "headScale": 1.02,
+              "skinColor": "#FAE3CA",
+              "bodyShape": "slim"
+            },
+            "face": {
+              "eyeStyle": "sparkle",
+              "eyeColor": "#2A231E",
+              "browStyle": "arched",
+              "mouthStyle": "smile",
+              "blush": true,
+              "nose": true,
+              "extras": ["beautyMark", "freckles"]
+            },
+            "hair": {
+              "style": "ponytail",
+              "color": "#6E4A35"
+            },
+            "headgear": {
+              "type": "none",
+              "color": "#6E8E5A",
+              "accentColor": "#E8C77B"
+            },
+            "outfit": {
+              "top": "suit",
+              "topColor": "#6C8F58",
+              "trim": "#F3DFB1",
+              "cape": "short",
+              "belt": "#476338",
+              "gloves": "#EFE5CF",
+              "boots": "#5B4333"
+            },
+            "accessories": [
+              { "type": "headsetMic", "color": "#E8C77B", "attach": "head" },
+              { "type": "badge", "color": "#E8C77B", "attach": "chest" },
+              { "type": "notebookStrap", "color": "#8C6849", "attach": "chest" }
+            ],
+            "prop": {
+              "type": "notebook",
+              "hand": "right"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "content",
+      "zone": "content",
+      "name": "Phòng Nội dung",
+      "color": "#B5532F",
+      "position": [4.25, -3.6],
+      "rect": [1.5, -6.0, 5.5, 4.8],
+      "door": [1.5, -3.2, "west"],
+      "shortDesc": "Lo sản xuất video từ ý tưởng, kịch bản đến dựng và xuất bản",
+      "workstations": [
+        { "memberId": "alien", "desk": [3.5, -4.05], "chair": [3.15, -4.95], "facing": 0.38, "lookAt": [2.2, 0.5] },
+        { "memberId": "8bit-video", "desk": [4.9, -4.05], "chair": [4.7, -4.95], "facing": 0.25, "lookAt": [4.5, 0.8] }
+      ],
+      "members": [
+        {
+          "id": "alien",
+          "name": "Alien",
+          "role": "Biên kịch & Ý tưởng",
+          "desc": "Lên ý tưởng, viết kịch bản",
+          "skills": ["/brainstorm-hook", "/write-script", "/story-outline"],
+          "avatarStyle": {
+            "shirtColor": "#C8643D",
+            "accessory": "Ăng-ten mini & sổ tay ý tưởng"
+          },
+          "character": {
+            "id": "alien",
+            "name": "Alien",
+            "body": { "height": 0.96, "headScale": 1.06, "skinColor": "#8CD168", "bodyShape": "chibi" },
+            "face": { "eyeStyle": "sparkle", "eyeColor": "#181C16", "browStyle": "none", "mouthStyle": "smile", "blush": true, "nose": false, "extras": ["pointedEars", "glowAntennae"] },
+            "hair": { "style": "bald", "color": "#6AB349" },
+            "headgear": { "type": "none", "color": "#6AB349", "accentColor": "#C9F57A" },
+            "outfit": { "top": "astronautTunic", "topColor": "#CF744F", "trim": "#F3C992", "cape": "none", "belt": "#6D3B26", "gloves": "#73B854", "boots": "#5B3E2E" },
+            "accessories": [{ "type": "badge", "color": "#F3C992", "attach": "chest" }],
+            "prop": { "type": "quill", "hand": "right" }
+          }
+        },
+        {
+          "id": "8bit-video",
+          "name": "8bit-video",
+          "role": "Biên tập Video",
+          "desc": "Dựng và xuất video",
+          "skills": ["/cut-video", "/add-subtitles", "/export-reel"],
+          "avatarStyle": {
+            "shirtColor": "#8F3D20",
+            "accessory": "Tai nghe chụp tai & kính pixel 8-bit"
+          },
+          "character": {
+            "id": "8bit-video",
+            "name": "8bit-video",
+            "body": { "height": 0.98, "headScale": 1.0, "skinColor": "#F5D7B9", "bodyShape": "pixel" },
+            "face": { "eyeStyle": "sharp", "eyeColor": "#1F2229", "browStyle": "thick", "mouthStyle": "focus", "blush": true, "nose": false, "extras": [] },
+            "hair": { "style": "pixelSpiky", "color": "#3B312B" },
+            "headgear": { "type": "viewfinder", "color": "#343944", "accentColor": "#5BC0EB" },
+            "outfit": { "top": "pixelArmor", "topColor": "#A85638", "trim": "#F2B857", "cape": "none", "belt": "#2B2E36", "gloves": "#3B404D", "boots": "#2A2D36" },
+            "accessories": [{ "type": "badge", "color": "#F2B857", "attach": "chest" }],
+            "prop": { "type": "clapperboard", "hand": "right" }
+          }
+        }
+      ]
+    },
+    {
+      "id": "it",
+      "zone": "it",
+      "name": "Phòng IT",
+      "color": "#6B4F8A",
+      "position": [-4.25, 3.6],
+      "rect": [-7.0, 1.2, 5.5, 4.8],
+      "door": [-1.5, 3.2, "east"],
+      "shortDesc": "Xây dựng hệ thống kỹ thuật, tự động hóa, dữ liệu và công cụ nội bộ",
+      "workstations": [
+        { "memberId": "it-lead", "desk": [-5.3, 3.45], "chair": [-5.8, 2.75], "facing": 0.65, "lookAt": [-1.5, 4.5] },
+        { "memberId": "automation", "desk": [-3.9, 3.45], "chair": [-4.4, 2.75], "facing": 0.58, "lookAt": [-0.5, 4.5] },
+        { "memberId": "data", "desk": [-5.3, 5.05], "chair": [-5.8, 4.35], "facing": 0.72, "lookAt": [-1.0, 5.5] },
+        { "memberId": "dev", "desk": [-3.9, 5.05], "chair": [-4.4, 4.35], "facing": 0.62, "lookAt": [-0.5, 5.8] }
+      ],
+      "members": [
+        {
+          "id": "it-lead",
+          "name": "IT-Lead",
+          "role": "Trưởng nhóm Kỹ thuật",
+          "desc": "Trưởng nhóm kỹ thuật, phân việc",
+          "skills": ["/assign-sprint", "/review-arch", "/unblock-dev"],
+          "avatarStyle": {
+            "shirtColor": "#533B6E",
+            "accessory": "Kính vuông & bảng kế hoạch"
+          },
+          "character": {
+            "id": "it-lead",
+            "name": "IT-Lead",
+            "body": { "height": 1.02, "headScale": 1.02, "skinColor": "#F6D9BA", "bodyShape": "sturdy" },
+            "face": { "eyeStyle": "sharp", "eyeColor": "#24212B", "browStyle": "thick", "mouthStyle": "neutral", "blush": false, "nose": true, "extras": [] },
+            "hair": { "style": "shortSlick", "color": "#342F3B" },
+            "headgear": { "type": "headphones", "color": "#302C38", "accentColor": "#8A6BB0" },
+            "outfit": { "top": "knightCoat", "topColor": "#634982", "trim": "#C4AEDF", "cape": "short", "belt": "#3A2B4D", "gloves": "#47355E", "boots": "#2F283B" },
+            "accessories": [{ "type": "shield", "color": "#C4AEDF", "attach": "backCenter" }],
+            "prop": { "type": "bigBook", "hand": "left" }
+          }
+        },
+        {
+          "id": "automation",
+          "name": "Automation",
+          "role": "Kỹ sư Tự động hóa",
+          "desc": "Tự động hóa quy trình",
+          "skills": ["/build-workflow", "/connect-webhook", "/schedule-job"],
+          "avatarStyle": {
+            "shirtColor": "#7E60A1",
+            "accessory": "Bánh răng cài áo & đồng hồ thông minh"
+          },
+          "character": {
+            "id": "automation",
+            "name": "Automation",
+            "body": { "height": 0.98, "headScale": 1.02, "skinColor": "#F7DEC2", "bodyShape": "chibi" },
+            "face": { "eyeStyle": "round", "eyeColor": "#25202E", "browStyle": "thin", "mouthStyle": "smile", "blush": true, "nose": true, "extras": [] },
+            "hair": { "style": "hoodedTop", "color": "#4A3A5C" },
+            "headgear": { "type": "hood", "color": "#7B5E9E", "accentColor": "#E5C16A" },
+            "outfit": { "top": "engineerJacket", "topColor": "#886AA8", "trim": "#E5C16A", "cape": "none", "belt": "#47375C", "gloves": "#584473", "boots": "#342B42" },
+            "accessories": [{ "type": "gear", "color": "#E5C16A", "attach": "backCenter" }],
+            "prop": { "type": "wrench", "hand": "right" }
+          }
+        },
+        {
+          "id": "data",
+          "name": "Data",
+          "role": "Chuyên viên Dữ liệu",
+          "desc": "Số liệu, báo cáo",
+          "skills": ["/query-metrics", "/build-dashboard", "/weekly-report"],
+          "avatarStyle": {
+            "shirtColor": "#9477B5",
+            "accessory": "Kính tròn & biểu đồ cầm tay"
+          },
+          "character": {
+            "id": "data",
+            "name": "Data",
+            "body": { "height": 0.97, "headScale": 1.02, "skinColor": "#FAE3CA", "bodyShape": "slim" },
+            "face": { "eyeStyle": "round", "eyeColor": "#282233", "browStyle": "arched", "mouthStyle": "smile", "blush": true, "nose": true, "extras": [] },
+            "hair": { "style": "bob", "color": "#4A355C" },
+            "headgear": { "type": "wizardHat", "color": "#7B5E9E", "accentColor": "#72CBE8" },
+            "outfit": { "top": "scholarRobe", "topColor": "#9E82BF", "trim": "#72CBE8", "cape": "none", "belt": "#5A4278", "gloves": "#EAE3F2", "boots": "#4A3961" },
+            "accessories": [{ "type": "badge", "color": "#72CBE8", "attach": "chest" }],
+            "prop": { "type": "miniChart", "hand": "right" }
+          }
+        },
+        {
+          "id": "dev",
+          "name": "Dev",
+          "role": "Lập trình viên",
+          "desc": "Lập trình, công cụ nội bộ",
+          "skills": ["/ship-feature", "/fix-bug", "/deploy-tool"],
+          "avatarStyle": {
+            "shirtColor": "#432E59",
+            "accessory": "Áo hoodie & laptop dán sticker"
+          },
+          "character": {
+            "id": "dev",
+            "name": "Dev",
+            "body": { "height": 0.98, "headScale": 1.02, "skinColor": "#F6D9BA", "bodyShape": "chibi" },
+            "face": { "eyeStyle": "sleepy", "eyeColor": "#1E222B", "browStyle": "thin", "mouthStyle": "neutral", "blush": true, "nose": false, "extras": [] },
+            "hair": { "style": "curly", "color": "#2E2933" },
+            "headgear": { "type": "glasses", "color": "#CBE6F5", "accentColor": "#2C303A" },
+            "outfit": { "top": "hoodie", "topColor": "#543D6E", "trim": "#63D49E", "cape": "none", "belt": "#322442", "gloves": "#3D2D52", "boots": "#262833" },
+            "accessories": [],
+            "prop": { "type": "laptop", "hand": "both" }
+          }
+        }
+      ]
+    },
+    {
+      "id": "marketing",
+      "zone": "marketing",
+      "name": "Phòng Marketing & Phân phối",
+      "color": "#2F6B8A",
+      "position": [4.25, 3.6],
+      "rect": [1.5, 1.2, 5.5, 4.8],
+      "door": [1.5, 3.2, "west"],
+      "shortDesc": "Đăng bài, bán hàng và quản lý các kênh truyền thông",
+      "workstations": [
+        { "memberId": "threads", "desk": [3.45, 3.35], "chair": [3.1, 2.55], "facing": 0.45, "lookAt": [2.2, 6.0] },
+        { "memberId": "8bit-fb", "desk": [4.9, 3.35], "chair": [4.6, 2.55], "facing": 0.32, "lookAt": [4.8, 6.0] }
+      ],
+      "members": [
+        {
+          "id": "threads",
+          "name": "Threads",
+          "role": "Chuyên viên Threads",
+          "desc": "Đăng bài, tương tác trên Threads",
+          "skills": ["/post-thread", "/reply-community", "/track-trends"],
+          "avatarStyle": {
+            "shirtColor": "#3C82A6",
+            "accessory": "Điện thoại & mũ lưỡi trai"
+          },
+          "character": {
+            "id": "threads",
+            "name": "Threads",
+            "body": { "height": 0.98, "headScale": 1.02, "skinColor": "#F7DEC2", "bodyShape": "chibi" },
+            "face": { "eyeStyle": "sparkle", "eyeColor": "#1F2429", "browStyle": "thin", "mouthStyle": "smile", "blush": true, "nose": true, "extras": ["freckles"] },
+            "hair": { "style": "curly", "color": "#3A322D" },
+            "headgear": { "type": "headphones", "color": "#2E333B", "accentColor": "#5EA6CC" },
+            "outfit": { "top": "hoodie", "topColor": "#4D8FB3", "trim": "#CBE6F5", "cape": "none", "belt": "#2B4D61", "gloves": "#323740", "boots": "#262A32" },
+            "accessories": [{ "type": "cheekBandage", "color": "#F5DEC4", "attach": "head" }],
+            "prop": { "type": "speechBubbles", "hand": "right" }
+          }
+        },
+        {
+          "id": "8bit-fb",
+          "name": "8bit-fb",
+          "role": "Chuyên viên Facebook & Bán hàng",
+          "desc": "Đăng bài, chạy bán hàng, quản lý Facebook",
+          "skills": ["/publish-fb", "/run-sales-campaign", "/manage-inbox"],
+          "avatarStyle": {
+            "shirtColor": "#224F68",
+            "accessory": "Loa mini & huy hiệu 8-bit"
+          },
+          "character": {
+            "id": "8bit-fb",
+            "name": "8bit-fb",
+            "body": { "height": 0.98, "headScale": 1.0, "skinColor": "#F7DEC2", "bodyShape": "pixel" },
+            "face": { "eyeStyle": "round", "eyeColor": "#1E2630", "browStyle": "thick", "mouthStyle": "smile", "blush": true, "nose": false, "extras": [] },
+            "hair": { "style": "pixelBlock", "color": "#2D3C4E" },
+            "headgear": { "type": "none", "color": "#2F6B8A", "accentColor": "#539BF5" },
+            "outfit": { "top": "pixelArmor", "topColor": "#356682", "trim": "#6CB4EE", "cape": "none", "belt": "#223D4E", "gloves": "#488CE8", "boots": "#23303E" },
+            "accessories": [{ "type": "badge", "color": "#6CB4EE", "attach": "chest" }],
+            "prop": { "type": "shieldF", "hand": "right" }
+          }
+        }
+      ]
+    }
+  ]
+}

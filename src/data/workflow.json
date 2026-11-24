@@ -1,0 +1,134 @@
+{
+  "defaultCommand": "Làm video giới thiệu sản phẩm mới và đăng lên các kênh...",
+  "steps": [
+    {
+      "id": "lex-to-emma",
+      "from": "lex",
+      "to": "emma",
+      "actors": ["lex", "emma"],
+      "caption": "Lex: Giao lệnh mới cho Emma ghi chú và phân việc toàn công ty",
+      "durationMs": 3600,
+      "activeDepartment": "executive",
+      "walkingActor": null,
+      "walkDestination": null,
+      "activeSkills": [
+        { "actorId": "lex", "actorName": "Lex", "skill": "/set-vision" },
+        { "actorId": "emma", "actorName": "Emma", "skill": "/dispatch-task" }
+      ],
+      "packet": { "from": "lex", "to": "emma" },
+      "isCelebration": false
+    },
+    {
+      "id": "emma-to-content",
+      "from": "emma",
+      "to": "alien",
+      "actors": ["emma", "alien", "8bit-video"],
+      "caption": "Emma: Chuyển yêu cầu sang Phòng Nội dung — Alien viết kịch bản, 8bit-video dựng video",
+      "durationMs": 6200,
+      "activeDepartment": "content",
+      "walkingActor": "emma",
+      "walkDestination": "content",
+      "activeSkills": [
+        { "actorId": "alien", "actorName": "Alien", "skill": "/write-script" },
+        { "actorId": "8bit-video", "actorName": "8bit-video", "skill": "/cut-video" }
+      ],
+      "packet": { "from": "emma", "to": "alien" },
+      "isCelebration": false
+    },
+    {
+      "id": "emma-to-it",
+      "from": "emma",
+      "to": "it-lead",
+      "actors": ["emma", "it-lead", "automation", "data", "dev"],
+      "caption": "Emma: Gọi Phòng IT — Automation chuẩn bị quy trình, Data lấy số liệu, Dev hỗ trợ công cụ, IT-Lead tổng hợp",
+      "durationMs": 5800,
+      "activeDepartment": "it",
+      "walkingActor": "emma",
+      "walkDestination": "it",
+      "activeSkills": [
+        { "actorId": "automation", "actorName": "Automation", "skill": "/build-workflow" },
+        { "actorId": "data", "actorName": "Data", "skill": "/query-metrics" },
+        { "actorId": "dev", "actorName": "Dev", "skill": "/ship-feature" },
+        { "actorId": "it-lead", "actorName": "IT-Lead", "skill": "/assign-sprint" }
+      ],
+      "packet": { "from": "emma", "to": "it-lead" },
+      "isCelebration": false
+    },
+    {
+      "id": "content-to-marketing",
+      "from": "8bit-video",
+      "to": "threads",
+      "actors": ["threads", "8bit-fb"],
+      "caption": "Phòng Nội dung: Chuyển video sang Marketing & Phân phối — Threads đăng bài, 8bit-fb chạy bán hàng",
+      "durationMs": 5200,
+      "activeDepartment": "marketing",
+      "walkingActor": "emma",
+      "walkDestination": "marketing",
+      "activeSkills": [
+        { "actorId": "threads", "actorName": "Threads", "skill": "/post-thread" },
+        { "actorId": "8bit-fb", "actorName": "8bit-fb", "skill": "/run-sales-campaign" }
+      ],
+      "packet": { "from": "8bit-video", "to": "threads" },
+      "isCelebration": false
+    },
+    {
+      "id": "data-to-emma",
+      "from": "data",
+      "to": "emma",
+      "actors": ["data", "emma"],
+      "caption": "Data: Gửi báo cáo kết quả chiến dịch cho Emma mang lên Ban Điều hành",
+      "durationMs": 5600,
+      "activeDepartment": "executive",
+      "walkingActor": "emma",
+      "walkDestination": "desk",
+      "activeSkills": [
+        { "actorId": "data", "actorName": "Data", "skill": "/weekly-report" },
+        { "actorId": "emma", "actorName": "Emma", "skill": "/daily-brief" }
+      ],
+      "packet": { "from": "data", "to": "emma" },
+      "isCelebration": false
+    },
+    {
+      "id": "emma-to-lex",
+      "from": "emma",
+      "to": "lex",
+      "actors": ["emma", "lex"],
+      "caption": "Emma: Báo cáo kết quả hoàn thành lên Chủ tịch Lex phê duyệt",
+      "durationMs": 3600,
+      "activeDepartment": "executive",
+      "walkingActor": null,
+      "walkDestination": null,
+      "activeSkills": [
+        { "actorId": "emma", "actorName": "Emma", "skill": "/sync-teams" },
+        { "actorId": "lex", "actorName": "Lex", "skill": "/approve-plan" }
+      ],
+      "packet": { "from": "emma", "to": "lex" },
+      "isCelebration": false
+    },
+    {
+      "id": "company-celebration",
+      "from": null,
+      "to": null,
+      "actors": [
+        "lex",
+        "emma",
+        "alien",
+        "8bit-video",
+        "threads",
+        "8bit-fb",
+        "it-lead",
+        "automation",
+        "data",
+        "dev"
+      ],
+      "caption": "Xong việc, cả công ty ăn mừng",
+      "durationMs": 4500,
+      "activeDepartment": null,
+      "walkingActor": null,
+      "walkDestination": null,
+      "activeSkills": [],
+      "packet": null,
+      "isCelebration": true
+    }
+  ]
+}
