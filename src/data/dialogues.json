@@ -39,7 +39,7 @@
     "threads|8bit-fb": [
       [
         { "speaker": "threads", "text": "Video lên chưa? Bài sắp tới giờ đăng rồi.", "gesture": "point" },
-        { "speaker": "8bit-fb", "text": "Đang chạy quảng cáo, đơn mới nhảy liên tục.", "gesture": "laugh" }
+        { "speaker": "8bit-fb", "text": "Tập 010 và 011 đã đăng xong hôm nay, tập 012 chờ Lex duyệt lúc 19:00.", "gesture": "laugh" }
       ],
       [
         { "speaker": "8bit-fb", "text": "Bên Threads hôm nay tương tác có bùng nổ không?", "gesture": "tilt" },
@@ -66,7 +66,7 @@
     ],
     "8bit-video|8bit-fb": [
       [
-        { "speaker": "8bit-video", "text": "Bản video chạy ads có phụ đề lớn xong rồi nè.", "gesture": "point" },
+        { "speaker": "8bit-video", "text": "Bản video có phụ đề lớn xong rồi nè.", "gesture": "point" },
         { "speaker": "8bit-fb", "text": "Tuyệt, mình lên chiến dịch bán hàng liền!", "gesture": "laugh" }
       ],
       [
@@ -80,8 +80,8 @@
         { "speaker": "emma", "text": "Cảm ơn em, số liệu rõ ràng quá, chị trình anh Lex luôn!", "gesture": "nod" }
       ],
       [
-        { "speaker": "emma", "text": "Tỷ lệ chuyển đổi video mới tuần này tăng nhiều không em?", "gesture": "tilt" },
-        { "speaker": "data", "text": "Tăng 24% so với tuần trước đó chị, biểu đồ xanh đẹp luôn!", "gesture": "laugh" }
+        { "speaker": "emma", "text": "Số liệu các kênh hiện tại thế nào rồi em?", "gesture": "tilt" },
+        { "speaker": "data", "text": "Facebook 0 follower, Instagram 2 follower, Threads 2 follower — em gửi bảng chi tiết cho chị nhé!", "gesture": "laugh" }
       ],
       [
         { "speaker": "data", "text": "Em vừa cập nhật dashboard theo thời gian thực rồi ạ.", "gesture": "point" },

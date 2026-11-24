@@ -11,7 +11,13 @@ const workflowData = rawWorkflow as WorkflowData;
 
 export function CommandBar() {
   const [inputValue, setInputValue] = useState("");
-  const { getDepartmentById } = useOfficeData();
+  const { getDepartmentById, companyStatus } = useOfficeData();
+
+  // Lệnh mặc định là việc thật Lex đang chờ làm (từ API), không còn là
+  // caption demo "video giới thiệu sản phẩm mới".
+  const liveDefaultCommand =
+    companyStatus?.executive.find((m) => m.id === "lex")?.focus ??
+    workflowData.defaultCommand;
 
   const isWorkflowRunning = useOfficeStore((s) => s.isWorkflowRunning);
   const workflowStepIndex = useOfficeStore((s) => s.workflowStepIndex);
@@ -32,7 +38,7 @@ export function CommandBar() {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (isWorkflowRunning) return;
-    const command = inputValue.trim() || workflowData.defaultCommand;
+    const command = inputValue.trim() || liveDefaultCommand;
     startWorkflow(command);
   };
 
@@ -109,7 +115,7 @@ export function CommandBar() {
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
             disabled={isWorkflowRunning}
-            placeholder="Làm video giới thiệu sản phẩm mới và đăng lên các kênh..."
+            placeholder={liveDefaultCommand}
             className="w-full bg-transparent text-sm text-[#2A251D] placeholder:text-[#8E8472] focus:outline-none disabled:cursor-not-allowed"
           />
 

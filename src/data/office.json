@@ -52,7 +52,9 @@
           "id": "lex",
           "name": "Lex",
           "role": "Chủ tịch",
-          "desc": "Đặt mục tiêu, ra quyết định cuối",
+          "desc": "Định hướng chiến lược, quyết định lớn, duyệt nội dung và giờ đăng cuối cùng",
+          "status": "Chờ duyệt",
+          "focus": "Duyệt batch 42 tập Physics 012–053; duyệt tập 012 để đăng 19:00 hôm nay 24/11; duyệt kịch bản Alien tập 9",
           "skills": ["/set-vision", "/approve-plan", "/final-decision"],
           "avatarStyle": {
             "shirtColor": "#2C3E22",
@@ -108,7 +110,9 @@
           "id": "emma",
           "name": "Emma",
           "role": "CEO + Thư ký",
-          "desc": "Nhận lệnh từ Chủ tịch, điều phối cả công ty",
+          "desc": "Điều hành hằng ngày, phân công việc, báo cáo lên Lex, giữ lịch và hồ sơ",
+          "status": "Đang làm",
+          "focus": "Điều hành 3 phòng ban; vừa tuyển xong đội IT; xây Dashboard công ty",
           "skills": ["/dispatch-task", "/sync-teams", "/daily-brief"],
           "avatarStyle": {
             "shirtColor": "#537640",
@@ -180,8 +184,11 @@
         {
           "id": "alien",
           "name": "Alien",
-          "role": "Biên kịch & Ý tưởng",
-          "desc": "Lên ý tưởng, viết kịch bản",
+          "role": "Giám đốc Sản xuất Nội dung",
+          "desc": "Series Câu Chuyện Alien trên TikTok, 1 tập/ngày: kịch bản + video + thumbnail + hook",
+          "status": "Tập 8 xong, chờ Lex chọn giờ đăng",
+          "progress": "8/15 tập",
+          "focus": "Tập 8 Atlantis và Lemuria (3:12) sẵn cho slot 25/11; kịch bản tập 9 chờ Lex duyệt",
           "skills": ["/brainstorm-hook", "/write-script", "/story-outline"],
           "avatarStyle": {
             "shirtColor": "#C8643D",
@@ -202,8 +209,11 @@
         {
           "id": "8bit-video",
           "name": "8bit-video",
-          "role": "Biên tập Video",
-          "desc": "Dựng và xuất video",
+          "role": "Giám đốc Sản xuất Video Khoa học",
+          "desc": "Physics in 60 Seconds, 3 tập/ngày, 42 tập 012–053",
+          "status": "42 tập đã sản xuất xong, chờ duyệt hàng loạt",
+          "progress": "42/42 tập đã sản xuất",
+          "focus": "Tập 012 chờ Lex duyệt để đăng 19:00 hôm nay 24/11; sửa 5 file lỗi (013, 017, 024, 044, 047) chờ duyệt Drive",
           "skills": ["/cut-video", "/add-subtitles", "/export-reel"],
           "avatarStyle": {
             "shirtColor": "#8F3D20",
@@ -242,8 +252,10 @@
         {
           "id": "it-lead",
           "name": "IT-Lead",
-          "role": "Trưởng nhóm Kỹ thuật",
-          "desc": "Trưởng nhóm kỹ thuật, phân việc",
+          "role": "Trưởng đội IT",
+          "desc": "Hệ thống, tài khoản, bảo mật, sao lưu, điều phối đội IT",
+          "status": "Vừa nhận việc 24/11",
+          "focus": "Nắm hệ thống, tài khoản và bảo mật công ty",
           "skills": ["/assign-sprint", "/review-arch", "/unblock-dev"],
           "avatarStyle": {
             "shirtColor": "#533B6E",
@@ -265,7 +277,9 @@
           "id": "automation",
           "name": "Automation",
           "role": "Kỹ sư Tự động hóa",
-          "desc": "Tự động hóa quy trình",
+          "desc": "Pipeline làm video, lịch đăng tự động, đồng bộ Drive",
+          "status": "Vừa nhận việc 24/11",
+          "focus": "Duy trì pipeline Alien + Physics và cron đăng bài",
           "skills": ["/build-workflow", "/connect-webhook", "/schedule-job"],
           "avatarStyle": {
             "shirtColor": "#7E60A1",
@@ -287,7 +301,9 @@
           "id": "data",
           "name": "Data",
           "role": "Chuyên viên Dữ liệu",
-          "desc": "Số liệu, báo cáo",
+          "desc": "Số liệu các kênh, báo cáo tăng trưởng hàng tuần",
+          "status": "Vừa nhận việc 24/11",
+          "focus": "Theo dõi views/follower/like; báo cáo tuần đầu tiên",
           "skills": ["/query-metrics", "/build-dashboard", "/weekly-report"],
           "avatarStyle": {
             "shirtColor": "#9477B5",
@@ -309,7 +325,9 @@
           "id": "dev",
           "name": "Dev",
           "role": "Lập trình viên",
-          "desc": "Lập trình, công cụ nội bộ",
+          "desc": "Công cụ nội bộ, dashboard, website, tính năng riêng; duy trì Dashboard",
+          "status": "Vừa nhận việc 24/11",
+          "focus": "Duy trì Dashboard; nối dữ liệu thật vào giao diện mới do Lex xây",
           "skills": ["/ship-feature", "/fix-bug", "/deploy-tool"],
           "avatarStyle": {
             "shirtColor": "#432E59",
@@ -346,8 +364,11 @@
         {
           "id": "threads",
           "name": "Threads",
-          "role": "Chuyên viên Threads",
-          "desc": "Đăng bài, tương tác trên Threads",
+          "role": "Giám đốc Marketing & Affiliate",
+          "desc": "Threads @lex.nguyen_digital, bài proof, nghiên cứu thị trường, bán WarriorPlus Vendor Blueprint",
+          "status": "Vòng 2 xong, vòng 3 đã hẹn từ 25/11",
+          "progress": "Mục tiêu: 500 follower/30 ngày, $10/ngày",
+          "focus": "Vòng 3 xoay công thức C, B, D, A, E, F; 2 followers; bài ebook $747.33; 9 bình luận/bài",
           "skills": ["/post-thread", "/reply-community", "/track-trends"],
           "avatarStyle": {
             "shirtColor": "#3C82A6",
@@ -368,8 +389,11 @@
         {
           "id": "8bit-fb",
           "name": "8bit-fb",
-          "role": "Chuyên viên Facebook & Bán hàng",
-          "desc": "Đăng bài, chạy bán hàng, quản lý Facebook",
+          "role": "Giám đốc Kênh & Phân phối",
+          "desc": "Facebook Page + Instagram physics.in.60s, đăng Reel theo lịch, theo dõi số liệu",
+          "status": "Tập 010 và 011 đã đăng hôm nay (09:06 và 13:00), tập 012 lúc 19:00 nếu Lex duyệt",
+          "progress": "11 tập đã đăng (001–011)",
+          "focus": "Tập 012 lúc 19:00 nếu Lex duyệt; Facebook 0 follower / 1.237 views, Instagram 2 follower / 1.514 views",
           "skills": ["/publish-fb", "/run-sales-campaign", "/manage-inbox"],
           "avatarStyle": {
             "shirtColor": "#224F68",

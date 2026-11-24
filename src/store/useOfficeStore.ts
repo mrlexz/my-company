@@ -1,5 +1,9 @@
 import { create } from "zustand";
-import type { CharacterLifeSnapshot, DepartmentId } from "@/types/office";
+import type {
+  CharacterLifeSnapshot,
+  CompanyStatus,
+  DepartmentId,
+} from "@/types/office";
 
 export interface CharacterActionCommand {
   type: "callToLobby" | "hurry";
@@ -28,6 +32,11 @@ interface OfficeStoreState {
   workflowStepIndex: number;
   workflowCommand: string;
 
+  // Dữ liệu công ty thật từ GET /api/status (mới nhất đã deploy).
+  // null = chưa tải xong, giao diện dùng dữ liệu đóng gói lúc build.
+  companyStatus: CompanyStatus | null;
+  companyStatusUpdatedAt: number | null;
+
   enterOffice: () => void;
   selectDepartment: (id: DepartmentId) => void;
   clearSelection: () => void;
@@ -39,6 +48,7 @@ interface OfficeStoreState {
   toggleDebugFacing: () => void;
 
   setLifeSnapshots: (snapshots: Record<string, CharacterLifeSnapshot>) => void;
+  setCompanyStatus: (status: CompanyStatus) => void;
   triggerCallToLobby: (memberId: string) => void;
   triggerHurry: (memberId: string) => void;
 
@@ -66,6 +76,9 @@ export const useOfficeStore = create<OfficeStoreState>((set) => ({
   workflowStepIndex: -1,
   workflowCommand: "",
 
+  companyStatus: null,
+  companyStatusUpdatedAt: null,
+
   enterOffice: () => set({ hasEnteredOffice: true }),
   selectDepartment: (id) =>
     set({ selectedDepartmentId: id, selectedMemberId: null }),
@@ -81,6 +94,8 @@ export const useOfficeStore = create<OfficeStoreState>((set) => ({
   toggleDebugFacing: () => set((s) => ({ debugFacing: !s.debugFacing })),
 
   setLifeSnapshots: (snapshots) => set({ lifeSnapshots: snapshots }),
+  setCompanyStatus: (status) =>
+    set({ companyStatus: status, companyStatusUpdatedAt: Date.now() }),
   triggerCallToLobby: (memberId) =>
     set({
       characterAction: { type: "callToLobby", memberId, nonce: Date.now() },

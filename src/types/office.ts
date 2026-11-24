@@ -185,6 +185,12 @@ export interface OfficeMember {
   name: string;
   role: string;
   desc: string;
+  /** Trạng thái thật từ company-data.json (dữ liệu công ty, Dev duy trì). */
+  status?: string;
+  /** Tiến độ thật, ví dụ "42/42 tập đã sản xuất". Không có với Ban Điều hành / IT. */
+  progress?: string;
+  /** Việc đang tập trung, từ company-data.json. */
+  focus?: string;
   skills: [string, string, string];
   avatarStyle: AvatarStyle;
   character: CharacterBlueprint;
@@ -235,6 +241,31 @@ export interface OfficeData {
   companyName: string;
   lobby: LobbyData;
   departments: Department[];
+}
+
+export interface CompanyStatusMember {
+  id: string;
+  name: string;
+  title: string;
+  role: string;
+  status: string;
+  progress?: string;
+  focus: string;
+}
+
+export interface CompanyStatusDepartment {
+  id: string;
+  name: string;
+  members: CompanyStatusMember[];
+}
+
+/** Dữ liệu công ty thật do GET /api/status trả về (đọc từ src/data/company-status.json). */
+export interface CompanyStatus {
+  channels: Record<string, Record<string, number>>;
+  departments: CompanyStatusDepartment[];
+  executive: CompanyStatusMember[];
+  note?: string;
+  version?: string;
 }
 
 export interface MemberWithDepartment extends OfficeMember {

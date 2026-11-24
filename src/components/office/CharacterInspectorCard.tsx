@@ -75,6 +75,30 @@ export function CharacterInspectorCard() {
             )}
           </div>
 
+          {/* Trạng thái thật (dữ liệu công ty, từ company-data.json) */}
+          {(member.status || member.progress || member.focus) && (
+            <div className="mt-3 rounded-2xl border border-[#E6DEC8] bg-white p-3 text-xs leading-relaxed text-[#4A4235]">
+              {member.status && (
+                <p>
+                  <span className="font-bold text-[#2A251D]">Trạng thái: </span>
+                  {member.status}
+                </p>
+              )}
+              {member.progress && (
+                <p className="mt-1">
+                  <span className="font-bold text-[#2A251D]">Tiến độ: </span>
+                  {member.progress}
+                </p>
+              )}
+              {member.focus && (
+                <p className="mt-1">
+                  <span className="font-bold text-[#2A251D]">Đang tập trung: </span>
+                  {member.focus}
+                </p>
+              )}
+            </div>
+          )}
+
           {/* Skills */}
           <div className="mt-3 flex flex-wrap gap-1.5">
             {member.skills.map((skill) => (
