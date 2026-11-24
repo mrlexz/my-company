@@ -74,6 +74,9 @@ function normalize(text: string): string {
 
 export function getStatusTone(status?: string): StatusTone {
   const text = normalize(status ?? "");
+  // "đã duyệt" (đã xong việc chờ) đứng trước "duyệt" chung chung, nếu
+  // không một tập đã duyệt vẫn bị tô màu chờ duyệt.
+  if (text.includes("da duyet")) return TONES.done;
   if (
     text.includes("cho duyet") ||
     text.includes("cho lex") ||

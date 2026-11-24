@@ -39,7 +39,7 @@
     "threads|8bit-fb": [
       [
         { "speaker": "threads", "text": "Video lên chưa? Bài sắp tới giờ đăng rồi.", "gesture": "point" },
-        { "speaker": "8bit-fb", "text": "Tập 010 và 011 đã đăng xong hôm nay, tập 012 chờ Lex duyệt lúc 19:00.", "gesture": "laugh" }
+        { "speaker": "8bit-fb", "text": "Tập 010 và 011 đã đăng xong hôm nay, tập 012 đã duyệt, đăng lúc 19:00 tối nay.", "gesture": "laugh" }
       ],
       [
         { "speaker": "8bit-fb", "text": "Bên Threads hôm nay tương tác có bùng nổ không?", "gesture": "tilt" },

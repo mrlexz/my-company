@@ -1,5 +1,5 @@
 {
-  "defaultCommand": "Duyệt batch 42 tập Physics 012–053; duyệt tập 012 để đăng 19:00 hôm nay 24/11; duyệt kịch bản Alien tập 9",
+  "defaultCommand": "Duyệt batch 42 tập Physics 012–053; duyệt kịch bản Alien tập 9",
   "steps": [
     {
       "id": "lex-to-emma",
