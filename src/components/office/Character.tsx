@@ -13,6 +13,7 @@ import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import type { Group, Mesh } from "three";
 import { useOfficeData } from "@/hooks/useOfficeData";
+import { getStatusTone } from "@/lib/statusTone";
 import {
   characterRegistry,
   faceTo,
@@ -59,6 +60,8 @@ export interface CharacterProps {
   gesture?: SpeechGesture;
   speechText?: string | null;
   hoverLabel?: string | null;
+  /** Hiện nhãn tên trên đầu nhân vật (chỉ bật ở văn phòng chính). */
+  showNameLabel?: boolean;
   speedMultiplier?: number;
   isYielding?: boolean;
   isFocused?: boolean;
@@ -114,6 +117,7 @@ export const Character = forwardRef<CharacterHandle, CharacterProps>(
       gesture = "none",
       speechText = null,
       hoverLabel = null,
+      showNameLabel = false,
       speedMultiplier = 1,
       isYielding = false,
       isFocused = false,
@@ -131,6 +135,7 @@ export const Character = forwardRef<CharacterHandle, CharacterProps>(
   ) {
     const { getMemberById } = useOfficeData();
     const member = getMemberById(id);
+    const nameTone = getStatusTone(member?.status);
     const seat = MEMBER_SEATS[id];
 
     const startPos = useMemo<Vec3>(
@@ -699,6 +704,26 @@ export const Character = forwardRef<CharacterHandle, CharacterProps>(
                 <span className="font-bold text-[#E8C66D]">{member.name}</span>
                 {" · "}
                 {hoverLabel}
+              </div>
+            </Html>
+          )}
+
+          {/* Name Label: tên trên đầu nhân vật, màu theo trạng thái việc */}
+          {showNameLabel && member && (
+            <Html position={[0, 2.06, 0]} center zIndexRange={[23, 0]}>
+              <div
+                className="pointer-events-none flex items-center gap-1.5 whitespace-nowrap rounded-full border px-2.5 py-1 text-[11px] font-bold shadow-md backdrop-blur-sm"
+                style={{
+                  backgroundColor: nameTone.chipBg,
+                  color: nameTone.chipText,
+                  borderColor: nameTone.chipBorder,
+                }}
+              >
+                <span
+                  className="h-1.5 w-1.5 rounded-full"
+                  style={{ backgroundColor: nameTone.dot }}
+                />
+                {member.name}
               </div>
             </Html>
           )}

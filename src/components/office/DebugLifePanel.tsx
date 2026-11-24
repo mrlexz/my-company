@@ -1,6 +1,7 @@
 "use client";
 
 import { useOfficeData } from "@/hooks/useOfficeData";
+import { activityLabel, stateLabel } from "@/lib/vietnameseLabels";
 import { useOfficeStore } from "@/store/useOfficeStore";
 
 /**
@@ -18,7 +19,7 @@ export function DebugLifePanel() {
     <aside className="fixed right-5 top-16 z-30 max-h-[65vh] w-72 overflow-y-auto rounded-2xl border border-[#059669]/40 bg-[#1B1914]/92 p-3.5 text-[#FAF6EC] shadow-xl backdrop-blur-md">
       <div className="flex items-center justify-between border-b border-white/15 pb-2">
         <span className="text-xs font-extrabold uppercase tracking-wider text-[#34D399]">
-          Debug AI & Lưới A* (Phím D)
+          Gỡ lỗi AI & Lưới A* (Phím D)
         </span>
         <span className="font-mono text-[10px] text-[#A8A08E]">10 Hz</span>
       </div>
@@ -33,8 +34,9 @@ export function DebugLifePanel() {
             >
               <div className="flex items-center justify-between gap-2">
                 <span className="font-bold text-[#FCF9F2]">{m.name}</span>
-                <span className="rounded bg-[#059669]/30 px-1.5 py-0.5 font-mono text-[10px] text-[#6EE7B7]">
-                  {snap?.activity ?? "working"} · {snap?.state ?? "working"}
+                <span className="rounded bg-[#059669]/30 px-1.5 py-0.5 text-[10px] font-semibold text-[#6EE7B7]">
+                  {activityLabel(snap?.activity)} ·{" "}
+                  {stateLabel(snap?.state)}
                   {snap && snap.speedMultiplier > 1 ? " ⚡" : ""}
                 </span>
               </div>

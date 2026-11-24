@@ -910,6 +910,7 @@ export function OfficeScene({ enableSSAO = true }: { enableSSAO?: boolean }) {
               gesture={isWorkflowRunning ? "none" : gesture}
               speechText={hasEnteredOffice ? speechText : null}
               hoverLabel={hasEnteredOffice ? hoverLabel : null}
+              showNameLabel={hasEnteredOffice}
               speedMultiplier={snap?.speedMultiplier ?? 1}
               isYielding={snap?.isYielding ?? false}
               isFocused={isCharFocused}

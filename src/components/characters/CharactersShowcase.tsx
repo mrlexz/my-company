@@ -11,6 +11,10 @@ import {
 import { renderProp } from "@/components/office/character/parts/propParts";
 import { useOfficeData } from "@/hooks/useOfficeData";
 import { getStatusTone } from "@/lib/statusTone";
+import {
+  CHARACTER_STATE_LABELS,
+  EMOTION_LABELS,
+} from "@/lib/vietnameseLabels";
 import type {
   CharacterState,
   EmotionType,
@@ -18,21 +22,13 @@ import type {
   PropType,
 } from "@/types/office";
 
-const EMOTIONS: Array<{ value: EmotionType; label: string }> = [
-  { value: "idle", label: "Idle" },
-  { value: "happy", label: "Happy" },
-  { value: "focused", label: "Focused" },
-  { value: "surprised", label: "Surprised" },
-  { value: "celebrating", label: "Celebrating" },
-];
+const EMOTIONS: Array<{ value: EmotionType; label: string }> = (
+  ["idle", "happy", "focused", "surprised", "celebrating"] as EmotionType[]
+).map((value) => ({ value, label: EMOTION_LABELS[value] }));
 
-const STATES: Array<{ value: CharacterState; label: string }> = [
-  { value: "idle", label: "Idle" },
-  { value: "walking", label: "Walking" },
-  { value: "working", label: "Working" },
-  { value: "handover", label: "Handover" },
-  { value: "celebrating", label: "Celebrating" },
-];
+const STATES: Array<{ value: CharacterState; label: string }> = (
+  ["idle", "walking", "working", "handover", "celebrating"] as CharacterState[]
+).map((value) => ({ value, label: CHARACTER_STATE_LABELS[value] }));
 
 const ALL_PROPS: Array<{
   type: Exclude<PropType, "none">;
@@ -43,77 +39,77 @@ const ALL_PROPS: Array<{
 }> = [
   {
     type: "scroll",
-    label: "Scroll",
+    label: "Cuộn giấy",
     desc: "Cuộn giấy có dấu sáp đỏ & ruy băng (mở khi working)",
     primaryColor: "#F5E7C6",
     secondaryColor: "#B83B2E",
   },
   {
     type: "notebook",
-    label: "Notebook",
+    label: "Sổ tay",
     desc: "Sổ da cài bút lông gáy (lật trang khi working)",
     primaryColor: "#8C5E3C",
     secondaryColor: "#E5C068",
   },
   {
     type: "quill",
-    label: "Quill",
+    label: "Bút lông",
     desc: "Bút lông ngỗng lớn ngòi vàng",
     primaryColor: "#FAF6EC",
     secondaryColor: "#D9B35C",
   },
   {
     type: "clapperboard",
-    label: "Clapperboard",
+    label: "Bảng clap",
     desc: "Bảng clap phim vạch đen trắng khép mở nhẹ",
     primaryColor: "#23262E",
     secondaryColor: "#FAF7F0",
   },
   {
     type: "megaphone",
-    label: "Megaphone",
+    label: "Loa",
     desc: "Loa nón LatheGeometry có vành nổi",
     primaryColor: "#3C82A6",
     secondaryColor: "#FAF7F0",
   },
   {
     type: "shoppingBag",
-    label: "Shopping Bag",
+    label: "Túi mua sắm",
     desc: "Túi giấy có cổ gập & quai dây đôi",
     primaryColor: "#D4A373",
     secondaryColor: "#FAF6EC",
   },
   {
     type: "priceSign",
-    label: "Price Sign",
+    label: "Bảng giá",
     desc: "Bảng giá gỗ bo viền gắn trên cọc",
     primaryColor: "#B88652",
     secondaryColor: "#FAF3DF",
   },
   {
     type: "wrench",
-    label: "Wrench",
+    label: "Cờ lê",
     desc: "Cờ lê to bản kim loại mờ",
     primaryColor: "#CBD5E1",
     secondaryColor: "#64748B",
   },
   {
     type: "blueprint",
-    label: "Blueprint",
+    label: "Bản vẽ",
     desc: "Ống bản vẽ có giấy xanh thò ra",
     primaryColor: "#6D4C36",
     secondaryColor: "#2E6DB4",
   },
   {
     type: "bigBook",
-    label: "Big Book",
+    label: "Sách lớn",
     desc: "Sách dày bìa teal, 4 góc bọc vàng",
     primaryColor: "#2B7A78",
     secondaryColor: "#E0B85A",
   },
   {
     type: "miniChart",
-    label: "Mini Chart",
+    label: "Biểu đồ nhỏ",
     desc: "Bảng nhỏ có 4 cột biểu đồ màu",
     primaryColor: "#FAF7F0",
     secondaryColor: "#6B4F8A",
@@ -127,14 +123,14 @@ const ALL_PROPS: Array<{
   },
   {
     type: "shieldF",
-    label: "Shield F",
+    label: "Khiên F",
     desc: "Khiên tròn xanh đậm, viền vàng, chữ f nổi",
     primaryColor: "#1E4D8C",
     secondaryColor: "#E0B85A",
   },
   {
     type: "speechBubbles",
-    label: "Speech Bubbles",
+    label: "Bong bóng thoại",
     desc: "3 bong bóng thoại trắng-xanh trôi nhấp nhô",
     primaryColor: "#FAF7F0",
     secondaryColor: "#72B8E2",
@@ -291,8 +287,9 @@ function CharacterTurntableCard({
           {member.departmentName.replace("Phòng ", "")}
         </span>
 
-        <span className="pointer-events-none absolute bottom-2.5 right-3 z-30 rounded-full bg-[#231F18]/78 px-2.5 py-0.5 font-mono text-[10px] text-[#FAF6EC]">
-          {activeEmotion} · {activeState}
+        <span className="pointer-events-none absolute bottom-2.5 right-3 z-30 rounded-full bg-[#231F18]/78 px-2.5 py-0.5 text-[10px] font-semibold text-[#FAF6EC]">
+          {EMOTION_LABELS[activeEmotion]} ·{" "}
+          {CHARACTER_STATE_LABELS[activeState]}
         </span>
       </div>
 
@@ -358,7 +355,7 @@ function CharacterTurntableCard({
             </span>
             {bp.face.extras.length > 0 && (
               <span className="rounded-md bg-[#F2EAD7] px-2 py-0.5">
-                extras: <b>{bp.face.extras.join(", ")}</b>
+                thêm: <b>{bp.face.extras.join(", ")}</b>
               </span>
             )}
           </div>
@@ -367,7 +364,7 @@ function CharacterTurntableCard({
         <div className="mt-3.5 space-y-2.5 border-t border-[#ECE4D0] pt-3">
           <div>
             <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-[#7C715D]">
-              Cảm xúc (setEmotion)
+              Cảm xúc
             </p>
             <div className="flex flex-wrap gap-1">
               {EMOTIONS.map((em) => {
@@ -526,7 +523,7 @@ export function CharactersShowcase() {
                     : "border-[#DFD6BE] bg-[#FCF9F2] text-[#5C5343] hover:bg-[#F2EAD7]"
                 }`}
               >
-                Chuyển động Working: {propsWorking ? "BẬT" : "TẮT"}
+                Chuyển động làm việc: {propsWorking ? "BẬT" : "TẮT"}
               </button>
             ) : (
               <>
