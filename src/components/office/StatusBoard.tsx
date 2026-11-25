@@ -8,7 +8,7 @@ import {
   getStatusToneByKey,
   type StatusToneKey,
 } from "@/lib/statusTone";
-import { getMemberRank } from "@/lib/memberRank";
+import { RankBadge } from "./RankBadge";
 import { useOfficeStore } from "@/store/useOfficeStore";
 
 /** Chữ viết tắt trên vòng tròn avatar: lấy chữ đầu của tên tiếng Anh +
@@ -129,7 +129,6 @@ export function StatusBoard() {
                 <div className="space-y-1.5">
                   {dept.members.map((member) => {
                     const tone = getStatusTone(member.status);
-                    const rank = getMemberRank(member.id);
                     return (
                       <button
                         key={member.id}
@@ -160,19 +159,7 @@ export function StatusBoard() {
                             >
                               {member.role}
                             </span>
-                            <span
-                              className={`rank-badge mt-1 inline-flex items-center rounded-full font-extrabold tracking-wide ${
-                                rank.prominent
-                                  ? "rank-badge--gold px-2 py-0.5 text-[10px]"
-                                  : "px-1.5 py-0.5 text-[9px]"
-                              }`}
-                              style={{
-                                backgroundColor: rank.color,
-                                color: rank.textColor,
-                              }}
-                            >
-                              {rank.label}
-                            </span>
+                            <RankBadge memberId={member.id} className="mt-1" />
                           </span>
                         </span>
                         {member.status && (

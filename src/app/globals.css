@@ -17,11 +17,13 @@ body {
   font-family: var(--font-sans);
 }
 
-/* Rank badge sparkle: một vệt sáng lướt ngang badge, tạo cảm giác lấp lánh.
-   Vàng (Chủ tịch) lướt nhanh + sáng hơn và có thêm nhịp phát sáng nhẹ;
-   các cấp còn lại lướt chậm và mờ hơn. Chỉ animate transform/opacity
-   (vệt sáng) và box-shadow (nhịp sáng vàng) nên nhẹ, không làm chậm
-   cảnh 3D trên điện thoại. */
+/* Rank badge sparkle: vệt sáng lướt ngang badge + vài tia sáng nhỏ (hình thoi)
+   nhấp nháy quanh viền, tạo cảm giác lấp lánh nhẹ, sang. Vàng (Chủ tịch)
+   có 3 tia, lướt nhanh + sáng hơn + nhịp phát sáng; các cấp còn lại 2 tia,
+   chậm và mờ hơn. Chỉ animate transform/opacity (vệt sáng, tia) và
+   box-shadow (nhịp sáng vàng trên 1 badge) nên nhẹ, không làm chậm cảnh
+   3D trên điện thoại. Vệt sáng và tia không chạm vào màu trạng thái của
+   thẻ tên — thẻ tên giữ màu amber/xanh lá/xanh dương/teal như cũ. */
 @keyframes rank-badge-shine {
   0% {
     transform: translateX(-160%) skewX(-20deg);
@@ -39,6 +41,18 @@ body {
   }
   50% {
     box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+  }
+}
+
+@keyframes rank-spark-twinkle {
+  0%,
+  100% {
+    opacity: 0;
+    transform: rotate(45deg) scale(0.4);
+  }
+  50% {
+    opacity: 1;
+    transform: rotate(45deg) scale(1);
   }
 }
 
@@ -60,7 +74,7 @@ body {
     transparent
   );
   transform: translateX(-160%) skewX(-20deg);
-  animation: rank-badge-shine 3.6s ease-in-out infinite;
+  animation: rank-badge-shine 4.5s ease-in-out infinite;
   pointer-events: none;
 }
 
@@ -71,9 +85,47 @@ body {
     rgba(255, 255, 255, 0.85),
     transparent
   );
-  animation-duration: 1.7s;
+  animation-duration: 2.2s;
 }
 
 .rank-badge--gold {
-  animation: rank-badge-glow 1.7s ease-in-out infinite;
+  animation: rank-badge-glow 2.2s ease-in-out infinite;
+}
+
+/* Tia lấp lánh quanh viền: hình thoi CSS thuần, đặt sát mép badge. */
+.rank-spark {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.95);
+  opacity: 0;
+  transform: rotate(45deg) scale(0.4);
+  animation: rank-spark-twinkle 2.8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.rank-spark-1 {
+  top: 1px;
+  left: 4px;
+  animation-delay: 0s;
+}
+
+.rank-spark-2 {
+  bottom: 1px;
+  right: 4px;
+  animation-delay: 0.9s;
+}
+
+.rank-spark-3 {
+  top: 1px;
+  right: 4px;
+  animation-delay: 1.7s;
+}
+
+.rank-badge--gold .rank-spark {
+  width: 5px;
+  height: 5px;
+  background: #fff7cc;
+  box-shadow: 0 0 4px rgba(255, 247, 204, 0.9);
+  animation-duration: 1.6s;
 }

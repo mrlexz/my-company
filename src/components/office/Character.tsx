@@ -14,7 +14,7 @@ import * as THREE from "three";
 import type { Group, Mesh } from "three";
 import { useOfficeData } from "@/hooks/useOfficeData";
 import { getStatusTone } from "@/lib/statusTone";
-import { getMemberRank } from "@/lib/memberRank";
+import { RankBadge } from "./RankBadge";
 import {
   characterRegistry,
   faceTo,
@@ -137,7 +137,6 @@ export const Character = forwardRef<CharacterHandle, CharacterProps>(
     const { getMemberById } = useOfficeData();
     const member = getMemberById(id);
     const nameTone = getStatusTone(member?.status);
-    const rank = getMemberRank(member?.id ?? "");
     const seat = MEMBER_SEATS[id];
 
     const startPos = useMemo<Vec3>(
@@ -749,19 +748,7 @@ export const Character = forwardRef<CharacterHandle, CharacterProps>(
                   />
                   {member.name}
                 </span>
-                <span
-                  className={`rank-badge inline-flex items-center whitespace-nowrap rounded-full font-extrabold tracking-wide shadow-sm ${
-                    rank.prominent
-                      ? "rank-badge--gold px-2.5 py-0.5 text-[10px]"
-                      : "px-2 py-0.5 text-[9px]"
-                  }`}
-                  style={{
-                    backgroundColor: rank.color,
-                    color: rank.textColor,
-                  }}
-                >
-                  {rank.label}
-                </span>
+                <RankBadge memberId={member.id} />
               </div>
             </Html>
           )}
