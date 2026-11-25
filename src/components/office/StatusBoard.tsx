@@ -7,7 +7,20 @@ import {
   getStatusTone,
   getStatusToneByKey,
   type StatusToneKey,
-} from "@/lib/statusTone";import { useOfficeStore } from "@/store/useOfficeStore";
+} from "@/lib/statusTone";
+import { getMemberRank } from "@/lib/memberRank";
+import { useOfficeStore } from "@/store/useOfficeStore";
+
+/** Chữ viết tắt trên vòng tròn avatar: lấy chữ đầu của tên tiếng Anh +
+    chữ đầu của phần vai trò ("Orion - Alien" -> "OA"); tên không có
+    dấu "-" thì lấy 2 chữ đầu ("Lex" -> "LE"). */
+function getInitials(name: string): string {
+  const parts = name.split(" - ");
+  if (parts.length >= 2 && parts[0] && parts[1]) {
+    return (parts[0][0] + parts[1][0]).toUpperCase();
+  }
+  return name.slice(0, 2).toUpperCase();
+}
 
 /**
  * Bảng trạng thái công việc: liệt kê cả 10 người theo phòng ban để Lex
@@ -116,6 +129,7 @@ export function StatusBoard() {
                 <div className="space-y-1.5">
                   {dept.members.map((member) => {
                     const tone = getStatusTone(member.status);
+                    const rank = getMemberRank(member.id);
                     return (
                       <button
                         key={member.id}
@@ -134,7 +148,7 @@ export function StatusBoard() {
                                 member.avatarStyle.shirtColor,
                             }}
                           >
-                            {member.name.slice(0, 2).toUpperCase()}
+                            {getInitials(member.name)}
                           </span>
                           <span className="min-w-0">
                             <span className="block truncate text-sm font-extrabold text-[#2A251D]">
@@ -145,6 +159,19 @@ export function StatusBoard() {
                               style={{ color: dept.color }}
                             >
                               {member.role}
+                            </span>
+                            <span
+                              className={`rank-badge mt-1 inline-flex items-center rounded-full font-extrabold tracking-wide ${
+                                rank.prominent
+                                  ? "rank-badge--gold px-2 py-0.5 text-[10px]"
+                                  : "px-1.5 py-0.5 text-[9px]"
+                              }`}
+                              style={{
+                                backgroundColor: rank.color,
+                                color: rank.textColor,
+                              }}
+                            >
+                              {rank.label}
                             </span>
                           </span>
                         </span>

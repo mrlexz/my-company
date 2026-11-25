@@ -16,3 +16,64 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans);
 }
+
+/* Rank badge sparkle: một vệt sáng lướt ngang badge, tạo cảm giác lấp lánh.
+   Vàng (Chủ tịch) lướt nhanh + sáng hơn và có thêm nhịp phát sáng nhẹ;
+   các cấp còn lại lướt chậm và mờ hơn. Chỉ animate transform/opacity
+   (vệt sáng) và box-shadow (nhịp sáng vàng) nên nhẹ, không làm chậm
+   cảnh 3D trên điện thoại. */
+@keyframes rank-badge-shine {
+  0% {
+    transform: translateX(-160%) skewX(-20deg);
+  }
+  55%,
+  100% {
+    transform: translateX(260%) skewX(-20deg);
+  }
+}
+
+@keyframes rank-badge-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 rgba(255, 215, 0, 0);
+  }
+  50% {
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+  }
+}
+
+.rank-badge {
+  position: relative;
+  overflow: hidden;
+}
+
+.rank-badge::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 45%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.45),
+    transparent
+  );
+  transform: translateX(-160%) skewX(-20deg);
+  animation: rank-badge-shine 3.6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.rank-badge--gold::after {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.85),
+    transparent
+  );
+  animation-duration: 1.7s;
+}
+
+.rank-badge--gold {
+  animation: rank-badge-glow 1.7s ease-in-out infinite;
+}

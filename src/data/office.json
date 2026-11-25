@@ -520,7 +520,7 @@
       "members": [
         {
           "id": "alien",
-          "name": "Alien",
+          "name": "Orion - Alien",
           "role": "Giám đốc Sản xuất Nội dung",
           "desc": "Series Câu Chuyện Alien trên TikTok, 1 tập/ngày: kịch bản + video + thumbnail + hook",
           "status": "Tập 8 xong, chờ Lex chọn giờ đăng",
@@ -537,7 +537,7 @@
           },
           "character": {
             "id": "alien",
-            "name": "Alien",
+            "name": "Orion - Alien",
             "body": {
               "height": 0.96,
               "headScale": 1.06,
@@ -589,7 +589,7 @@
         },
         {
           "id": "8bit-video",
-          "name": "8bit-video",
+          "name": "Rex - 8bit-video",
           "role": "Giám đốc Sản xuất Video Khoa học",
           "desc": "Physics in 60 Seconds, 3 tập/ngày, 42 tập 012–053",
           "status": "42 tập đã sản xuất xong, chờ duyệt hàng loạt",
@@ -606,7 +606,7 @@
           },
           "character": {
             "id": "8bit-video",
-            "name": "8bit-video",
+            "name": "Rex - 8bit-video",
             "body": {
               "height": 0.98,
               "headScale": 1.0,
@@ -655,7 +655,7 @@
         },
         {
           "id": "video",
-          "name": "Video",
+          "name": "Leo - Video",
           "role": "Chuyên viên Sản xuất Video",
           "desc": "Dựng video live-action dọc 9:16 từ kịch bản bằng stock/B-roll có bản quyền, voiceover, phụ đề song ngữ",
           "status": "Vừa được tuyển 25/11, đang làm video VAF đầu tiên",
@@ -672,7 +672,7 @@
           },
           "character": {
             "id": "video",
-            "name": "Video",
+            "name": "Leo - Video",
             "body": {
               "height": 0.98,
               "headScale": 1.02,
@@ -811,7 +811,7 @@
       "members": [
         {
           "id": "it-lead",
-          "name": "IT-Lead",
+          "name": "Ethan - IT-Lead",
           "role": "Trưởng đội IT",
           "desc": "Hệ thống, tài khoản, bảo mật, sao lưu, điều phối đội IT",
           "status": "Vừa nhận việc 24/11",
@@ -827,7 +827,7 @@
           },
           "character": {
             "id": "it-lead",
-            "name": "IT-Lead",
+            "name": "Ethan - IT-Lead",
             "body": {
               "height": 1.02,
               "headScale": 1.02,
@@ -876,7 +876,7 @@
         },
         {
           "id": "automation",
-          "name": "Automation",
+          "name": "Felix - Automation",
           "role": "Kỹ sư Tự động hóa",
           "desc": "Pipeline làm video, lịch đăng tự động, đồng bộ Drive",
           "status": "Vừa nhận việc 24/11",
@@ -892,7 +892,7 @@
           },
           "character": {
             "id": "automation",
-            "name": "Automation",
+            "name": "Felix - Automation",
             "body": {
               "height": 0.98,
               "headScale": 1.02,
@@ -941,7 +941,7 @@
         },
         {
           "id": "data",
-          "name": "Data",
+          "name": "Luna - Data",
           "role": "Chuyên viên Dữ liệu",
           "desc": "Số liệu các kênh, báo cáo tăng trưởng hàng tuần",
           "status": "Vừa nhận việc 24/11",
@@ -957,7 +957,7 @@
           },
           "character": {
             "id": "data",
-            "name": "Data",
+            "name": "Luna - Data",
             "body": {
               "height": 0.97,
               "headScale": 1.02,
@@ -1006,7 +1006,7 @@
         },
         {
           "id": "dev",
-          "name": "Dev",
+          "name": "Jason - Dev",
           "role": "Lập trình viên",
           "desc": "Công cụ nội bộ, dashboard, website, tính năng riêng; duy trì Dashboard",
           "status": "Vừa nhận việc 24/11",
@@ -1022,7 +1022,7 @@
           },
           "character": {
             "id": "dev",
-            "name": "Dev",
+            "name": "Jason - Dev",
             "body": {
               "height": 0.98,
               "headScale": 1.02,
@@ -1139,7 +1139,7 @@
       "members": [
         {
           "id": "threads",
-          "name": "Threads",
+          "name": "Miles - Threads",
           "role": "Giám đốc Marketing & Affiliate",
           "desc": "Threads @lex.nguyen_digital, bài proof, nghiên cứu thị trường, bán WarriorPlus Vendor Blueprint",
           "status": "Vòng 2 xong, vòng 3 đã hẹn từ 25/11",
@@ -1156,7 +1156,7 @@
           },
           "character": {
             "id": "threads",
-            "name": "Threads",
+            "name": "Miles - Threads",
             "body": {
               "height": 0.98,
               "headScale": 1.02,
@@ -1207,7 +1207,7 @@
         },
         {
           "id": "8bit-fb",
-          "name": "8bit-fb",
+          "name": "Mia - 8bit-fb",
           "role": "Giám đốc Kênh & Phân phối",
           "desc": "Facebook Page + Instagram physics.in.60s, đăng Reel theo lịch, theo dõi số liệu",
           "status": "Tập 010 và 011 đã đăng hôm nay (09:06 và 13:00), tập 012 lúc 19:00 nếu Lex duyệt",
@@ -1224,7 +1224,7 @@
           },
           "character": {
             "id": "8bit-fb",
-            "name": "8bit-fb",
+            "name": "Mia - 8bit-fb",
             "body": {
               "height": 0.98,
               "headScale": 1.0,
@@ -1273,7 +1273,7 @@
         },
         {
           "id": "research",
-          "name": "Research",
+          "name": "Ivy - Research",
           "role": "Chuyên viên Nghiên cứu Thị trường",
           "desc": "Nghiên cứu thị trường & chiến lược marketing, viết kịch bản video",
           "status": "Vừa được tuyển 25/11, đang làm đề bài đầu tiên",
@@ -1290,7 +1290,7 @@
           },
           "character": {
             "id": "research",
-            "name": "Research",
+            "name": "Ivy - Research",
             "body": {
               "height": 0.98,
               "headScale": 1.02,

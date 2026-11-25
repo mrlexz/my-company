@@ -14,6 +14,7 @@ import * as THREE from "three";
 import type { Group, Mesh } from "three";
 import { useOfficeData } from "@/hooks/useOfficeData";
 import { getStatusTone } from "@/lib/statusTone";
+import { getMemberRank } from "@/lib/memberRank";
 import {
   characterRegistry,
   faceTo,
@@ -136,6 +137,7 @@ export const Character = forwardRef<CharacterHandle, CharacterProps>(
     const { getMemberById } = useOfficeData();
     const member = getMemberById(id);
     const nameTone = getStatusTone(member?.status);
+    const rank = getMemberRank(member?.id ?? "");
     const seat = MEMBER_SEATS[id];
 
     const startPos = useMemo<Vec3>(
@@ -712,9 +714,12 @@ export const Character = forwardRef<CharacterHandle, CharacterProps>(
               Bấm được vào thẻ tên để mở thẻ nhân vật — trước đây thẻ tên
               xuyên thấu (pointer-events-none) nên bấm vào đó là bấm vào
               khoảng trống trên đầu nhân vật, không mở được gì, mà trên
-              điện thoại thẻ tên là chỗ dễ bấm nhất. */}
+              điện thoại thẻ tên là chỗ dễ bấm nhất.
+              Badge cấp bậc nằm dưới tên, màu riêng theo cấp (vàng Chủ tịch /
+              tím CEO / xanh dương Giám đốc / teal Chuyên viên) — không thay
+              màu trạng thái của thẻ tên. */}
           {showNameLabel && member && (
-            <Html position={[0, 2.06, 0]} center zIndexRange={[23, 0]}>
+            <Html position={[0, 2.14, 0]} center zIndexRange={[23, 0]}>
               <div
                 role="button"
                 tabIndex={0}
@@ -728,18 +733,35 @@ export const Character = forwardRef<CharacterHandle, CharacterProps>(
                     onSelect?.();
                   }
                 }}
-                className="flex cursor-pointer items-center gap-1.5 whitespace-nowrap rounded-full border px-2.5 py-1 text-[11px] font-bold shadow-md backdrop-blur-sm"
-                style={{
-                  backgroundColor: nameTone.chipBg,
-                  color: nameTone.chipText,
-                  borderColor: nameTone.chipBorder,
-                }}
+                className="flex cursor-pointer flex-col items-center gap-1"
               >
                 <span
-                  className="h-1.5 w-1.5 rounded-full"
-                  style={{ backgroundColor: nameTone.dot }}
-                />
-                {member.name}
+                  className="flex items-center gap-1.5 whitespace-nowrap rounded-full border px-2.5 py-1 text-[11px] font-bold shadow-md backdrop-blur-sm"
+                  style={{
+                    backgroundColor: nameTone.chipBg,
+                    color: nameTone.chipText,
+                    borderColor: nameTone.chipBorder,
+                  }}
+                >
+                  <span
+                    className="h-1.5 w-1.5 rounded-full"
+                    style={{ backgroundColor: nameTone.dot }}
+                  />
+                  {member.name}
+                </span>
+                <span
+                  className={`rank-badge inline-flex items-center whitespace-nowrap rounded-full font-extrabold tracking-wide shadow-sm ${
+                    rank.prominent
+                      ? "rank-badge--gold px-2.5 py-0.5 text-[10px]"
+                      : "px-2 py-0.5 text-[9px]"
+                  }`}
+                  style={{
+                    backgroundColor: rank.color,
+                    color: rank.textColor,
+                  }}
+                >
+                  {rank.label}
+                </span>
               </div>
             </Html>
           )}
