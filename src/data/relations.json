@@ -26,6 +26,9 @@
     { "from": "automation", "to": "dev", "weight": 7, "topic": "webhook & API" },
     { "from": "dev", "to": "automation", "weight": 7, "topic": "tối ưu công cụ" },
     { "from": "emma", "to": "research", "weight": 6, "topic": "giao đề bài nghiên cứu" },
-    { "from": "research", "to": "emma", "weight": 6, "topic": "báo cáo nghiên cứu" }
+    { "from": "research", "to": "emma", "weight": 6, "topic": "báo cáo nghiên cứu" },
+    { "from": "emma", "to": "video", "weight": 6, "topic": "giao video VAF" },
+    { "from": "video", "to": "emma", "weight": 6, "topic": "gửi bản nháp video" },
+    { "from": "research", "to": "video", "weight": 7, "topic": "giao kịch bản làm video" }
   ]
 }

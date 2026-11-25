@@ -100,6 +100,39 @@ export function ContentRoomFurniture({ accentColor }: { accentColor: string }) {
       <VinylChair position={[-1.1, 0, -1.35]} rotationY={0.38} color={accentColor} />
       <VinylChair position={[0.45, 0, -1.35]} rotationY={0.25} color="#C8643D" />
 
+      {/* Second desk row at the front for Video (workstation chair [0, 0.65], desk [0, 1.35] local) */}
+      <group position={[0, 0, 1.35]}>
+        <RoundedBox
+          args={[1.3, 0.12, 0.7]}
+          radius={0.04}
+          smoothness={3}
+          position={[0, 0.72, 0]}
+          castShadow
+          receiveShadow
+        >
+          <HoneyWoodMaterial />
+        </RoundedBox>
+        {[
+          [-0.55, 0.35, -0.25],
+          [0.55, 0.35, -0.25],
+          [-0.55, 0.35, 0.25],
+          [0.55, 0.35, 0.25],
+        ].map((pos, i) => (
+          <mesh key={i} position={pos as [number, number, number]} castShadow>
+            <capsuleGeometry args={[0.04, 0.62, 6, 8]} />
+            <meshStandardMaterial color="#5A4230" {...VINYL_MAT} />
+          </mesh>
+        ))}
+        <LiveMonitor
+          position={[0, 1.05, 0.12]}
+          rotation={[0, 0, 0]}
+          width={0.56}
+          height={0.38}
+          mode="timeline"
+        />
+      </group>
+      <VinylChair position={[0, 0, 0.65]} rotationY={0.55} color="#D97742" />
+
       {/* Ring Light on Tripod Stand (đèn ring light) */}
       <group position={[1.45, 0, -1.15]} rotation={[0, -0.55, 0]}>
         <mesh position={[0, 0.85, 0]} castShadow>

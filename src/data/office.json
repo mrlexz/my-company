@@ -499,6 +499,22 @@
             4.5,
             0.8
           ]
+        },
+        {
+          "memberId": "video",
+          "desk": [
+            4.25,
+            -2.25
+          ],
+          "chair": [
+            4.25,
+            -2.95
+          ],
+          "facing": 0.55,
+          "lookAt": [
+            4.6,
+            -0.6
+          ]
         }
       ],
       "members": [
@@ -633,6 +649,72 @@
             ],
             "prop": {
               "type": "clapperboard",
+              "hand": "right"
+            }
+          }
+        },
+        {
+          "id": "video",
+          "name": "Video",
+          "role": "Chuyên viên Sản xuất Video",
+          "desc": "Dựng video live-action dọc 9:16 từ kịch bản bằng stock/B-roll có bản quyền, voiceover, phụ đề song ngữ",
+          "status": "Vừa được tuyển 25/11, đang làm video VAF đầu tiên",
+          "progress": "Video đầu tiên đang dựng",
+          "focus": "Video VAF đầu tiên: Video 1 TSN 45-60s cho Facebook (bản nháp chờ Lex duyệt)",
+          "skills": [
+            "/edit-live-action",
+            "/record-voiceover",
+            "/add-bilingual-subs"
+          ],
+          "avatarStyle": {
+            "shirtColor": "#D97742",
+            "accessory": "Máy quay mini & tai nghe"
+          },
+          "character": {
+            "id": "video",
+            "name": "Video",
+            "body": {
+              "height": 0.98,
+              "headScale": 1.02,
+              "skinColor": "#F7DEC2",
+              "bodyShape": "chibi"
+            },
+            "face": {
+              "eyeStyle": "round",
+              "eyeColor": "#1F2429",
+              "browStyle": "thin",
+              "mouthStyle": "smile",
+              "blush": true,
+              "nose": true,
+              "extras": []
+            },
+            "hair": {
+              "style": "shortSlick",
+              "color": "#2E2A26"
+            },
+            "headgear": {
+              "type": "headphones",
+              "color": "#2E333B",
+              "accentColor": "#F59E0B"
+            },
+            "outfit": {
+              "top": "hoodie",
+              "topColor": "#D97742",
+              "trim": "#F5EFE0",
+              "cape": "none",
+              "belt": "#7A3B1E",
+              "gloves": "#323740",
+              "boots": "#262A32"
+            },
+            "accessories": [
+              {
+                "type": "badge",
+                "color": "#F5EFE0",
+                "attach": "chest"
+              }
+            ],
+            "prop": {
+              "type": "laptop",
               "hand": "right"
             }
           }

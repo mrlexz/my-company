@@ -10,6 +10,7 @@ import type { MemberWithDepartment } from "@/types/office";
 const DISPLAY_ORDER = [
   "alien",
   "8bit-video",
+  "video",
   "threads",
   "8bit-fb",
   "research",
@@ -27,6 +28,7 @@ const APPEARANCE_ORDER = [
   "emma",
   "alien",
   "8bit-video",
+  "video",
   "threads",
   "8bit-fb",
   "research",
