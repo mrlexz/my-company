@@ -47,7 +47,7 @@ export function useCameraFocus(
       duration = 1.2,
       ease = "power3.inOut",
       onComplete,
-      halfWidth = 8,
+      halfWidth = 9,
     }: FocusOptions) => {
       killActiveTween();
 

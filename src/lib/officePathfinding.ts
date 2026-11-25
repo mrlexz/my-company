@@ -58,10 +58,10 @@ export const MEMBER_SEATS: Record<string, MemberSeat> = (() => {
  * Standing spots inside each room near the doorway for visiting characters.
  */
 export const ROOM_VISIT_POINTS: Record<DepartmentId, Vec3> = {
-  executive: [-2.3, 0, -3.2],
-  content: [2.3, 0, -3.2],
-  it: [-2.3, 0, 3.2],
-  marketing: [2.3, 0, 3.2],
+  executive: [-2.3, 0, -5],
+  content: [2.3, 0, -5],
+  it: [-2.3, 0, 5],
+  marketing: [2.3, 0, 5],
 };
 
 /** Meeting spots around the central lobby round table [0, 0.2] */
@@ -72,11 +72,11 @@ export const LOBBY_MEETING_SPOTS: Vec3[] = [
   [0, 0, -0.85],
 ];
 
-/** Standing spots near the lobby coffee corner [0, -4.9] */
+/** Standing spots near the lobby coffee corner [0, -6.5] */
 export const LOBBY_COFFEE_SPOTS: Vec3[] = [
-  [-0.55, 0, -4.05],
-  [0.55, 0, -4.05],
-  [0.0, 0, -3.85],
+  [-0.55, 0, -5.65],
+  [0.55, 0, -5.65],
+  [0.0, 0, -5.45],
 ];
 
 /** Casual lobby chat & wander spots */
@@ -87,6 +87,8 @@ export const LOBBY_CHAT_SPOTS: Vec3[] = [
   [0.65, 0, 2.1],
   [-0.65, 0, 4.2],
   [0.65, 0, 4.2],
+  [-0.65, 0, 6.3],
+  [0.65, 0, 6.3],
 ];
 
 const grid = officeData.lobby.grid;

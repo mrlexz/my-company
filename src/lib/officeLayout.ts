@@ -1,8 +1,9 @@
 import type { Department } from "@/types/office";
 
-// Single-story 2x2 floor dimensions
-export const BUILDING_WIDTH = 14.0;
-export const BUILDING_DEPTH = 12.0;
+// Single-story 2x2 floor dimensions (enlarged 2026-11-25 for 12 people,
+// room for ~15-20: rooms 7.5 x 6, lobby spine x -1.5..1.5, band z -2..2)
+export const BUILDING_WIDTH = 18.0;
+export const BUILDING_DEPTH = 16.0;
 export const OUTER_WALL_HEIGHT = 2.65;
 export const LOW_PARTITION_HEIGHT = 0.62; // ~40% of chibi character height
 export const WALL_THICKNESS = 0.2;

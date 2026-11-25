@@ -114,7 +114,7 @@ export function Office() {
             INTRO_CAMERA_POSITION,
             INTRO_CAMERA_TARGET,
             aspect,
-            8,
+            9,
           ),
           fov: cameraFovForAspect(aspect),
           near: 0.1,
