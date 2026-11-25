@@ -24,6 +24,8 @@
     { "from": "automation", "to": "threads", "weight": 6, "topic": "tự động đăng bài" },
     { "from": "automation", "to": "8bit-fb", "weight": 6, "topic": "tự động trả lời đơn" },
     { "from": "automation", "to": "dev", "weight": 7, "topic": "webhook & API" },
-    { "from": "dev", "to": "automation", "weight": 7, "topic": "tối ưu công cụ" }
+    { "from": "dev", "to": "automation", "weight": 7, "topic": "tối ưu công cụ" },
+    { "from": "emma", "to": "research", "weight": 6, "topic": "giao đề bài nghiên cứu" },
+    { "from": "research", "to": "emma", "weight": 6, "topic": "báo cáo nghiên cứu" }
   ]
 }

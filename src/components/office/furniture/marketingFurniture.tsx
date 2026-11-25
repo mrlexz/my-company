@@ -122,6 +122,39 @@ export function MarketingRoomFurniture({
       <VinylChair position={[-1.15, 0, -1.05]} rotationY={0.45} color={accentColor} />
       <VinylChair position={[0.35, 0, -1.05]} rotationY={0.32} color="#224F68" />
 
+      {/* Second desk row at the back for Research (workstation chair [0, 0.85], desk [0, 1.55] local) */}
+      <group position={[0, 0, 1.55]}>
+        <RoundedBox
+          args={[1.3, 0.12, 0.7]}
+          radius={0.04}
+          smoothness={3}
+          position={[0, 0.72, 0]}
+          castShadow
+          receiveShadow
+        >
+          <HoneyWoodMaterial />
+        </RoundedBox>
+        {[
+          [-0.55, 0.35, -0.25],
+          [0.55, 0.35, -0.25],
+          [-0.55, 0.35, 0.25],
+          [0.55, 0.35, 0.25],
+        ].map((pos, i) => (
+          <mesh key={i} position={pos as [number, number, number]} castShadow>
+            <capsuleGeometry args={[0.04, 0.62, 6, 8]} />
+            <meshStandardMaterial color="#5A4230" {...VINYL_MAT} />
+          </mesh>
+        ))}
+        <LiveMonitor
+          position={[0, 1.05, 0.12]}
+          rotation={[0, 0, 0]}
+          width={0.56}
+          height={0.38}
+          mode="analyticsBlue"
+        />
+      </group>
+      <VinylChair position={[0, 0, 0.85]} rotationY={0.55} color="#5B8FB0" />
+
       {/* Product Box Shelf (kệ hộp sản phẩm) */}
       <group position={[1.45, 0, -1.25]}>
         {[0.25, 0.8, 1.35, 1.9].map((y, i) => (

@@ -358,7 +358,8 @@
       "shortDesc": "Đăng bài, bán hàng và quản lý các kênh truyền thông",
       "workstations": [
         { "memberId": "threads", "desk": [3.45, 3.35], "chair": [3.1, 2.55], "facing": 0.45, "lookAt": [2.2, 6.0] },
-        { "memberId": "8bit-fb", "desk": [4.9, 3.35], "chair": [4.6, 2.55], "facing": 0.32, "lookAt": [4.8, 6.0] }
+        { "memberId": "8bit-fb", "desk": [4.9, 3.35], "chair": [4.6, 2.55], "facing": 0.32, "lookAt": [4.8, 6.0] },
+        { "memberId": "research", "desk": [4.25, 5.15], "chair": [4.25, 4.45], "facing": 0.55, "lookAt": [5.2, 5.6] }
       ],
       "members": [
         {
@@ -409,6 +410,31 @@
             "outfit": { "top": "pixelArmor", "topColor": "#356682", "trim": "#6CB4EE", "cape": "none", "belt": "#223D4E", "gloves": "#488CE8", "boots": "#23303E" },
             "accessories": [{ "type": "badge", "color": "#6CB4EE", "attach": "chest" }],
             "prop": { "type": "shieldF", "hand": "right" }
+          }
+        },
+        {
+          "id": "research",
+          "name": "Research",
+          "role": "Chuyên viên Nghiên cứu Thị trường",
+          "desc": "Nghiên cứu thị trường & chiến lược marketing, viết kịch bản video",
+          "status": "Vừa được tuyển 25/11, đang làm đề bài đầu tiên",
+          "progress": "Đề bài đầu tiên đang làm",
+          "focus": "Đề bài đầu tiên: nghiên cứu + kịch bản song ngữ cho VAF Fast Track (TSN, Phú Quốc)",
+          "skills": ["/research-market", "/analyze-competitors", "/draft-strategy"],
+          "avatarStyle": {
+            "shirtColor": "#5B8FB0",
+            "accessory": "Kính lúp & sổ nghiên cứu"
+          },
+          "character": {
+            "id": "research",
+            "name": "Research",
+            "body": { "height": 0.98, "headScale": 1.02, "skinColor": "#F7DEC2", "bodyShape": "chibi" },
+            "face": { "eyeStyle": "round", "eyeColor": "#1F2429", "browStyle": "thin", "mouthStyle": "smile", "blush": true, "nose": true, "extras": [] },
+            "hair": { "style": "shortSlick", "color": "#2E2A26" },
+            "headgear": { "type": "glasses", "color": "#2E333B", "accentColor": "#7FB3D5" },
+            "outfit": { "top": "suit", "topColor": "#5B8FB0", "trim": "#CBE6F5", "cape": "none", "belt": "#2B4D61", "gloves": "#323740", "boots": "#262A32" },
+            "accessories": [{ "type": "badge", "color": "#7FB3D5", "attach": "chest" }],
+            "prop": { "type": "notebook", "hand": "right" }
           }
         }
       ]
