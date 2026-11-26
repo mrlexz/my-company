@@ -169,11 +169,17 @@ function Elephant({ position }: { position: [number, number, number] }) {
 }
 
 /** Hươu cao cổ chibi — mặt hướng về văn phòng (-x). */
-function Giraffe({ position }: { position: [number, number, number] }) {
+function Giraffe({
+  position,
+  scale = 1,
+}: {
+  position: [number, number, number];
+  scale?: number;
+}) {
   const body = "#D9A45B";
   const spot = "#8A5A2A";
   return (
-    <group position={position}>
+    <group position={position} scale={scale}>
       <mesh position={[0, 1.25, 0]} scale={[1.2, 0.85, 0.75]} castShadow>
         <sphereGeometry args={[1, 16, 12]} />
         <meshStandardMaterial color={body} roughness={0.85} />
@@ -231,14 +237,16 @@ function Giraffe({ position }: { position: [number, number, number] }) {
 function Lion({
   position,
   rotationY,
+  scale = 1,
 }: {
   position: [number, number, number];
   rotationY: number;
+  scale?: number;
 }) {
   const body = "#D9A45B";
   const mane = "#B06A28";
   return (
-    <group position={position} rotation={[0, rotationY, 0]}>
+    <group position={position} rotation={[0, rotationY, 0]} scale={scale}>
       <mesh position={[0, 0.85, 0]} scale={[1.05, 0.85, 0.8]} castShadow>
         <sphereGeometry args={[1, 16, 12]} />
         <meshStandardMaterial color={body} roughness={0.85} />
@@ -357,17 +365,17 @@ export function ZooEnvironment() {
 
       <ZooFence />
 
-      {/* Hồ nước nhỏ (phía tây-nam, cạnh chim cánh cụt) */}
-      <mesh position={[-8.5, -0.12, 6.5]} receiveShadow>
+      {/* Hồ nước nhỏ (dải nam, cạnh lối đi — KHÔNG đặt trong ô phòng vì sàn che mất) */}
+      <mesh position={[-1.5, -0.12, 10.8]} receiveShadow>
         <cylinderGeometry args={[1.2, 1.2, 0.06, 20]} />
         <meshStandardMaterial color="#7CC4DE" roughness={0.4} />
       </mesh>
 
-      {/* Thú — đặt ở dải nam/tây-nam để không bị văn phòng che (camera nhìn từ đông-nam): voi nam, hươu đông, sư tử nam, cánh cụt tây-nam */}
+      {/* Thú — đặt ở dải nam/tây-nam để không bị văn phòng che (camera nhìn từ đông-nam): voi nam, hươu đông (nhỏ lại cho lọt khung), sư tử nam (nhỏ lại, sát lối đi), cánh cụt tây-nam (tránh sau lưng voi) */}
       <Elephant position={[-5, 0, 9.2]} />
-      <Giraffe position={[10.6, 0, 3]} />
-      <Lion position={[4, 0, 9.3]} rotationY={0} />
-      <Penguin position={[-7, 0, 9]} rotationY={Math.PI} />
+      <Giraffe position={[10.3, 0, 1.8]} scale={0.9} />
+      <Lion position={[3, 0, 8.9]} rotationY={0} scale={0.8} />
+      <Penguin position={[-7.8, 0, 8.8]} rotationY={Math.PI} />
 
       <RoundTrees trees={ROUND_TREES} />
 
