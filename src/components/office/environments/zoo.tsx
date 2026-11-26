@@ -357,16 +357,16 @@ export function ZooEnvironment() {
 
       <ZooFence />
 
-      {/* Hồ nước nhỏ (phía nam, cạnh chim cánh cụt) */}
-      <mesh position={[-3, -0.12, 10]} receiveShadow>
-        <cylinderGeometry args={[1.4, 1.4, 0.06, 20]} />
+      {/* Hồ nước nhỏ (phía tây-nam, cạnh chim cánh cụt) */}
+      <mesh position={[-8.5, -0.12, 6.5]} receiveShadow>
+        <cylinderGeometry args={[1.2, 1.2, 0.06, 20]} />
         <meshStandardMaterial color="#7CC4DE" roughness={0.4} />
       </mesh>
 
-      {/* Thú: voi tây, hươu đông, sư tử nam (nhích vào 0.5 cho lọt khung), cánh cụt tây-nam */}
-      <Elephant position={[-10.6, 0, -2.5]} />
+      {/* Thú — đặt ở dải nam/tây-nam để không bị văn phòng che (camera nhìn từ đông-nam): voi nam, hươu đông, sư tử nam, cánh cụt tây-nam */}
+      <Elephant position={[-5, 0, 9.2]} />
       <Giraffe position={[10.6, 0, 3]} />
-      <Lion position={[6, 0, 9.5]} rotationY={-Math.PI / 2} />
+      <Lion position={[4, 0, 9.3]} rotationY={0} />
       <Penguin position={[-7, 0, 9]} rotationY={Math.PI} />
 
       <RoundTrees trees={ROUND_TREES} />

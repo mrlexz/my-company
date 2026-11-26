@@ -73,8 +73,10 @@ function StarField({ count = 140 }: { count?: number }) {
 /** Hành tinh có vành xoay chậm. */
 function RingedPlanet({
   position,
+  scale = 1,
 }: {
   position: [number, number, number];
+  scale?: number;
 }) {
   const ref = useRef<Group>(null);
 
@@ -83,12 +85,13 @@ function RingedPlanet({
   });
 
   return (
-    <group ref={ref} position={position}>
+    <group ref={ref} position={position} scale={scale}>
       <mesh castShadow>
         <sphereGeometry args={[2.4, 24, 18]} />
         <meshStandardMaterial color="#D8A24A" roughness={0.85} />
       </mesh>
-      <mesh rotation={[1.15, 0, 0.3]}>
+      {/* Vành dẹt (nghiêng nhẹ) để không chạm mái văn phòng khi hành tinh ở thấp */}
+      <mesh rotation={[0.35, 0, 0.3]}>
         <torusGeometry args={[3.4, 0.32, 8, 48]} />
         <meshStandardMaterial color="#E8C87A" roughness={0.8} />
       </mesh>
@@ -162,9 +165,9 @@ export function SpaceEnvironment() {
 
       <StarField />
 
-      {/* Hành tinh có vành + mặt trăng nhỏ — đủ gần để lọt khung mặc định */}
-      <RingedPlanet position={[-14, 6, -11]} />
-      <mesh position={[13, 8, -10]}>
+      {/* Hành tinh có vành + mặt trăng nhỏ — ở phía tây/đông, đủ thấp để lọt khung mặc định (camera nhìn từ đông-nam xuống, vật ở xa-tây-bắc bị đẩy lên khỏi khung) */}
+      <RingedPlanet position={[-11, 4.5, 0.5]} scale={0.75} />
+      <mesh position={[10, 7, -8]}>
         <sphereGeometry args={[0.9, 16, 12]} />
         <meshStandardMaterial color="#B8BCC8" roughness={0.9} />
       </mesh>
