@@ -7,7 +7,9 @@ import type { Group, Material, Mesh } from "three";
 import type { OrbitControls as OrbitControlsImpl } from "three-stdlib";
 import rawWorkflow from "@/data/workflow.json";
 import { useCameraFocus } from "@/hooks/useCameraFocus";
+import { useEnvironmentId } from "@/hooks/useEnvironmentId";
 import { useOfficeData } from "@/hooks/useOfficeData";
+import { getEnvironmentConfig } from "@/lib/environments";
 import {
   BUILDING_DEPTH,
   BUILDING_WIDTH,
@@ -559,6 +561,11 @@ export function OfficeScene({
   isPortrait?: boolean;
 }) {
   const { departments, allMembers, getDepartmentById } = useOfficeData();
+
+  // Ngoại cảnh xoay mỗi ngày (7 cảnh) — chỉ đổi trời/đất/đèn, văn phòng không đổi.
+  const environmentId = useEnvironmentId();
+  const environment = getEnvironmentConfig(environmentId);
+  const envLight = environment.lighting;
   const controlsRef = useRef<OrbitControlsImpl | null>(null);
   const { camera } = useThree();
 
@@ -745,15 +752,24 @@ export function OfficeScene({
 
   return (
     <>
-      <fog attach="fog" args={["#F3ECDD", 38, 72]} />
+      <fog attach="fog" args={[environment.fog, 38, 72]} />
+      {/* Màu nền trời theo cảnh (Đảo xanh: null = trong suốt, nền kem của trang) */}
+      {environment.background && (
+        <color attach="background" args={[environment.background]} />
+      )}
 
-      {/* Warm Hemisphere + Soft Shadow Directional + Interior PointLights */}
-      <ambientLight intensity={0.44} color="#FFF6E5" />
-      <hemisphereLight args={["#FFF8EB", "#C9B08A", 0.62]} />
+      {/* Hemisphere + Soft Shadow Directional + Interior PointLights (tông theo cảnh) */}
+      <ambientLight
+        intensity={envLight.ambientIntensity}
+        color={envLight.ambientColor}
+      />
+      <hemisphereLight
+        args={[envLight.hemiSky, envLight.hemiGround, envLight.hemiIntensity]}
+      />
       <directionalLight
         position={[14, 24, 14]}
-        intensity={1.45}
-        color="#FFF0D6"
+        intensity={envLight.sunIntensity}
+        color={envLight.sunColor}
         castShadow
         shadow-mapSize={[2048, 2048]}
         shadow-bias={-0.0004}
@@ -767,15 +783,15 @@ export function OfficeScene({
       />
       <directionalLight
         position={[-12, 10, -10]}
-        intensity={0.35}
-        color="#DCEAF8"
+        intensity={envLight.fillIntensity}
+        color={envLight.fillColor}
       />
 
       {/* Warm Interior PointLights in each of the 4 quadrants + central lobby */}
-      <pointLight position={[-4.25, 2.5, -3.6]} intensity={1.7} distance={8} decay={2} color="#FFE6B5" />
-      <pointLight position={[4.25, 2.5, -3.6]} intensity={1.7} distance={8} decay={2} color="#FFE5B8" />
-      <pointLight position={[-4.25, 2.5, 3.6]} intensity={1.7} distance={8} decay={2} color="#E6DCFF" />
-      <pointLight position={[4.25, 2.5, 3.6]} intensity={1.7} distance={8} decay={2} color="#FFE8C2" />
+      <pointLight position={[-5.25, 2.5, -5]} intensity={1.7} distance={8} decay={2} color="#FFE6B5" />
+      <pointLight position={[5.25, 2.5, -5]} intensity={1.7} distance={8} decay={2} color="#FFE5B8" />
+      <pointLight position={[-5.25, 2.5, 5]} intensity={1.7} distance={8} decay={2} color="#E6DCFF" />
+      <pointLight position={[5.25, 2.5, 5]} intensity={1.7} distance={8} decay={2} color="#FFE8C2" />
       <pointLight position={[0, 2.8, 0]} intensity={1.6} distance={8} decay={2} color="#FFF1D0" />
 
       {/* Floating Island & Outdoor Scenery */}
@@ -787,7 +803,7 @@ export function OfficeScene({
           }
         }}
       >
-        <EnvironmentProps />
+        <EnvironmentProps environmentId={environmentId} />
       </group>
 
       {/* Single-Story 2x2 Office Building */}
