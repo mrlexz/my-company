@@ -29,6 +29,8 @@
     { "from": "research", "to": "emma", "weight": 6, "topic": "báo cáo nghiên cứu" },
     { "from": "emma", "to": "video", "weight": 6, "topic": "giao video VAF" },
     { "from": "video", "to": "emma", "weight": 6, "topic": "gửi bản nháp video" },
-    { "from": "research", "to": "video", "weight": 7, "topic": "giao kịch bản làm video" }
+    { "from": "research", "to": "video", "weight": 7, "topic": "giao kịch bản làm video" },
+    { "from": "emma", "to": "nora", "weight": 6, "topic": "giao việc thiết kế" },
+    { "from": "nora", "to": "emma", "weight": 6, "topic": "gửi bản thiết kế" }
   ]
 }

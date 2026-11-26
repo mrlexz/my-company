@@ -643,6 +643,22 @@
             5.6,
             -2.0
           ]
+        },
+        {
+          "memberId": "nora",
+          "desk": [
+            2.6,
+            -7.2
+          ],
+          "chair": [
+            2.6,
+            -6.5
+          ],
+          "facing": 0.45,
+          "lookAt": [
+            2.3,
+            -4.0
+          ]
         }
       ],
       "members": [
@@ -843,6 +859,74 @@
             ],
             "prop": {
               "type": "laptop",
+              "hand": "right"
+            }
+          }
+        },
+        {
+          "id": "nora",
+          "name": "Nora - Designer",
+          "role": "Chuyên viên Thiết kế",
+          "desc": "Thiết kế hình ảnh cho tất cả các kênh của công ty",
+          "status": "Vừa được tuyển 26/11, đang làm quen công việc",
+          "progress": "Mới bắt đầu",
+          "focus": "Thiết kế cho tất cả các kênh của công ty",
+          "skills": [
+            "/design-graphics",
+            "/make-thumbnails",
+            "/brand-identity"
+          ],
+          "avatarStyle": {
+            "shirtColor": "#E0789A",
+            "accessory": "Bảng vẽ & bút stylus"
+          },
+          "character": {
+            "id": "nora",
+            "name": "Nora - Designer",
+            "body": {
+              "height": 0.96,
+              "headScale": 1.04,
+              "skinColor": "#F7DEC2",
+              "bodyShape": "chibi"
+            },
+            "face": {
+              "eyeStyle": "round",
+              "eyeColor": "#1F2429",
+              "browStyle": "arched",
+              "mouthStyle": "smile",
+              "blush": true,
+              "nose": true,
+              "extras": [
+                "freckles"
+              ]
+            },
+            "hair": {
+              "style": "bob",
+              "color": "#3A2A24"
+            },
+            "headgear": {
+              "type": "roundGlasses",
+              "color": "#2E333B",
+              "accentColor": "#E0789A"
+            },
+            "outfit": {
+              "top": "suit",
+              "topColor": "#E0789A",
+              "trim": "#F5EFE0",
+              "cape": "none",
+              "belt": "#8A3B54",
+              "gloves": "#323740",
+              "boots": "#262A32"
+            },
+            "accessories": [
+              {
+                "type": "badge",
+                "color": "#F5EFE0",
+                "attach": "chest"
+              }
+            ],
+            "prop": {
+              "type": "blueprint",
               "hand": "right"
             }
           }

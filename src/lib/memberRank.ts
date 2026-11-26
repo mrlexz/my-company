@@ -65,6 +65,12 @@ const RANKS: Record<string, MemberRank> = {
     color: "#14B8A6",
     textColor: "#FFFFFF",
   },
+  nora: {
+    tier: 4,
+    label: "CHUYÊN VIÊN",
+    color: "#14B8A6",
+    textColor: "#FFFFFF",
+  },
   automation: {
     tier: 4,
     label: "CHUYÊN VIÊN",
