@@ -194,8 +194,8 @@ export function SnowEnvironment() {
       <PineTrees trees={SNOW_PINES} coneColors={SNOW_PINE_CONES} />
       <Bushes bushes={SNOW_BUSHES} color="#FFFFFF" />
 
-      {/* Người tuyết: tây có khăn, đông đội mũ */}
-      <Snowman position={[-10, 0, 4]} faceX={1} withScarf />
+      {/* Người tuyết: tây (khăn) ra dải nam cho lọt khung mặc định, đông (mũ) giữ nguyên */}
+      <Snowman position={[-8, 0, 8.8]} faceX={1} withScarf />
       <Snowman position={[10.5, 0, -3.5]} faceX={-1} withHat />
 
       {/* Đèn lồng ấm hai bên lối đi */}

@@ -162,9 +162,9 @@ export function SpaceEnvironment() {
 
       <StarField />
 
-      {/* Hành tinh có vành + mặt trăng nhỏ */}
-      <RingedPlanet position={[-17, 7, -13]} />
-      <mesh position={[15, 9, -14]}>
+      {/* Hành tinh có vành + mặt trăng nhỏ — đủ gần để lọt khung mặc định */}
+      <RingedPlanet position={[-14, 6, -11]} />
+      <mesh position={[13, 8, -10]}>
         <sphereGeometry args={[0.9, 16, 12]} />
         <meshStandardMaterial color="#B8BCC8" roughness={0.9} />
       </mesh>

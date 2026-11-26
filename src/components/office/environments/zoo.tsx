@@ -363,10 +363,10 @@ export function ZooEnvironment() {
         <meshStandardMaterial color="#7CC4DE" roughness={0.4} />
       </mesh>
 
-      {/* Thú: voi tây, hươu đông, sư tử nam, cánh cụt tây-nam */}
+      {/* Thú: voi tây, hươu đông, sư tử nam (nhích vào 0.5 cho lọt khung), cánh cụt tây-nam */}
       <Elephant position={[-10.6, 0, -2.5]} />
       <Giraffe position={[10.6, 0, 3]} />
-      <Lion position={[6, 0, 10]} rotationY={-Math.PI / 2} />
+      <Lion position={[6, 0, 9.5]} rotationY={-Math.PI / 2} />
       <Penguin position={[-7, 0, 9]} rotationY={Math.PI} />
 
       <RoundTrees trees={ROUND_TREES} />
